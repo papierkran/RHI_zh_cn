@@ -3,40 +3,30 @@
 ; Non-commercial use only
 
 #define MyAppName "RHI"
-#define MyAppVersion "2.0.1"
+#define MyAppVersion "2.7.5.0"
 #define MyAppPublisher "RankFTW"
 #define MyAppURL "www.github.com/rankftw"
 #define MyAppExeName "RHI.exe"
 
 [Setup]
-; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
-; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{05342962-55F5-4BA3-BFD3-DBA01D2B8BCB}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 UninstallDisplayIcon={app}\{#MyAppExeName}
-; "ArchitecturesAllowed=x64compatible" specifies that Setup cannot run
-; on anything but x64 and Windows 11 on Arm.
 ArchitecturesAllowed=x64compatible
-; "ArchitecturesInstallIn64BitMode=x64compatible" requests that the
-; install be done in "64-bit mode" on x64 or Windows 11 on Arm,
-; meaning it should use the native 64-bit Program Files directory and
-; the 64-bit view of the registry.
 ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
-; Uncomment the following line to run in non administrative install mode (install for current user only).
-;PrivilegesRequired=lowest
-OutputDir=C:\Users\Mark\OneDrive\Documents\RDXC\Installers
-OutputBaseFilename=RHI-Setup
-SetupIconFile=C:\Users\Mark\OneDrive\Documents\RDXC\icon.ico
 SolidCompression=yes
 WizardStyle=modern dynamic
+OutputDir=.\setup
+OutputBaseFilename=RHI-Setup
+SetupIconFile=.\RenoDXCommander\Assets\icons\RHI.ico
+Compression=lzma2
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -45,8 +35,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Mark\OneDrive\Documents\RDXC\Publish\RHI\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Mark\OneDrive\Documents\RDXC\Publish\RHI\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

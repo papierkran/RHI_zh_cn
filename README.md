@@ -2,6 +2,8 @@
 
 **One tool. Every game. Full HDR, DLSS, and NVIDIA driver management from a single window.**
 
+- **[English](README.md)** | **[中文 (Chinese)](README.zh-CN.md)**
+
 RHI detects your entire game library across every major store and handles ReShade, HDR mods, frame limiters, DLSS management, OptiScaler, shader packs, and NVIDIA driver profiles — all in one click.
 
 ---
