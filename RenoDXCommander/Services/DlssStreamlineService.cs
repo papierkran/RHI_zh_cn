@@ -276,7 +276,7 @@ public partial class DlssStreamlineService : IDlssStreamlineService
     /// </summary>
     public static string FormatVersion(string? rawVersion)
     {
-        if (string.IsNullOrEmpty(rawVersion)) return "Unknown";
+        if (string.IsNullOrEmpty(rawVersion)) return "未知";
 
         // Only trim the last .0 if there are 4 parts and the last part is "0"
         var parts = rawVersion.Split('.');

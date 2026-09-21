@@ -72,7 +72,7 @@ public static class PresetPopupHelper
                         emptyPathLink,
                     },
                 },
-                PrimaryButtonText = "Open Folder",
+                PrimaryButtonText = "打开文件夹",
                 CloseButtonText = "Cancel",
                 XamlRoot = xamlRoot,
                 Background = Brush(ResourceKeys.SurfaceOverlayBrush),

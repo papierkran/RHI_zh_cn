@@ -173,7 +173,7 @@ public class NormalReShadeUpdateService : INormalReShadeUpdateService
             }
             catch (Exception ex)
             {
-                CrashReporter.Log($"[NormalReShadeUpdateService.EnsureLatestAsync] Download failed — {ex.Message}");
+                CrashReporter.Log($"[NormalReShadeUpdateService.EnsureLatestAsync] 下载失败 — {ex.Message}");
                 // Clean up partial download
                 var tempPath = exePath + ".tmp";
                 try { if (File.Exists(tempPath)) File.Delete(tempPath); } catch (Exception cleanupEx) { CrashReporter.Log($"[NormalReShadeUpdateService.EnsureLatestAsync] Failed to clean up partial download — {cleanupEx.Message}"); }

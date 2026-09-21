@@ -99,7 +99,7 @@ public partial class OptiScalerService
                 using var dlResp = await _http.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead);
                 if (!dlResp.IsSuccessStatusCode)
                 {
-                    CrashReporter.Log($"[OptiScalerService.EnsureStagingAsync] Download failed ({dlResp.StatusCode})");
+                    CrashReporter.Log($"[OptiScalerService.EnsureStagingAsync] 下载失败 ({dlResp.StatusCode})");
                     return;
                 }
 
@@ -482,7 +482,7 @@ public partial class OptiScalerService
                 using var dlResp = await _http.GetAsync(downloadUrl);
                 if (!dlResp.IsSuccessStatusCode)
                 {
-                    CrashReporter.Log($"[OptiScalerService.EnsureOptiPatcherStagingAsync] Download failed ({dlResp.StatusCode})");
+                    CrashReporter.Log($"[OptiScalerService.EnsureOptiPatcherStagingAsync] 下载失败 ({dlResp.StatusCode})");
                     return;
                 }
 
@@ -882,7 +882,7 @@ public partial class OptiScalerService
                 using var dlResp = await _http.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead);
                 if (!dlResp.IsSuccessStatusCode)
                 {
-                    CrashReporter.Log($"[OptiScalerService.EnsureNightlyStagingAsync] Download failed ({dlResp.StatusCode})");
+                    CrashReporter.Log($"[OptiScalerService.EnsureNightlyStagingAsync] 下载失败 ({dlResp.StatusCode})");
                     return;
                 }
 
@@ -1157,7 +1157,7 @@ public partial class OptiScalerService
                 using var dlResp = await _http.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead);
                 if (!dlResp.IsSuccessStatusCode)
                 {
-                    CrashReporter.Log($"[OptiScalerService.EnsureDlssNrStagingAsync] Download failed ({dlResp.StatusCode})");
+                    CrashReporter.Log($"[OptiScalerService.EnsureDlssNrStagingAsync] 下载失败 ({dlResp.StatusCode})");
                     return;
                 }
 

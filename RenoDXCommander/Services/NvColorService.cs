@@ -300,12 +300,12 @@ public static class NvColorService
     /// <summary>Converts dynamic range byte to display string.</summary>
     public static string DynamicRangeToLabel(byte dr) => dr switch
     {
-        DYNAMIC_RANGE_VESA => "Full",
-        DYNAMIC_RANGE_CEA  => "Limited",
-        _                  => "Full",
+        DYNAMIC_RANGE_VESA => "完整",
+        DYNAMIC_RANGE_CEA  => "受限",
+        _                  => "完整",
     };
 
     /// <summary>Converts dynamic range label to byte value.</summary>
     public static byte LabelToDynamicRange(string label) =>
-        label == "Limited" ? DYNAMIC_RANGE_CEA : DYNAMIC_RANGE_VESA;
+        label == "受限" ? DYNAMIC_RANGE_CEA : DYNAMIC_RANGE_VESA;
 }

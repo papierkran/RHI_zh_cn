@@ -13,10 +13,10 @@ public partial class GameCardViewModel
 
     // ── REF computed properties ───────────────────────────────────────────────────
 
-    public string RefActionLabel => RefIsInstalling ? "Installing..."
+    public string RefActionLabel => RefIsInstalling ? "安装中..."
         : RefStatus == GameStatus.UpdateAvailable ? "⬆  Update RE Framework"
-        : RefStatus == GameStatus.Installed ? "↺  Reinstall RE Framework"
-        : "⬇  Install RE Framework";
+        : RefStatus == GameStatus.Installed ? "↺  重新安装 RE Framework"
+        : "⬇  安装 RE Framework";
 
     public string RefBtnBackground  => RefStatus == GameStatus.UpdateAvailable ? "#201838" : "#182840";
     public string RefBtnForeground  => RefStatus == GameStatus.UpdateAvailable ? "#B898E8" : "#7AACDD";
@@ -29,7 +29,7 @@ public partial class GameCardViewModel
     public string RefStatusText => RefIsInstalling ? "Installing…"
         : RefStatus == GameStatus.UpdateAvailable ? "Update"
         : RefStatus == GameStatus.Installed ? (RefInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string RefStatusColor => RefIsInstalling ? "#D4A856"
         : RefStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : RefStatus == GameStatus.Installed ? "#5ECB7D"

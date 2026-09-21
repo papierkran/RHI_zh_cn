@@ -138,7 +138,7 @@ public partial class DetailPanelBuilder
             _window.DetailEngineText.TextDecorations = isClickable ? Windows.UI.Text.TextDecorations.Underline : Windows.UI.Text.TextDecorations.None;
             _window.DetailEngineBadge.Tag = isClickable ? card : null;
             if (isClickable)
-                ToolTipService.SetToolTip(_window.DetailEngineBadge, "Click to cycle engine version (affects DOF Fix eligibility)");
+                ToolTipService.SetToolTip(_window.DetailEngineBadge, "点击切换引擎版本（影响 DOF Fix 资格）");
             else
                 ToolTipService.SetToolTip(_window.DetailEngineBadge, null);
         }
@@ -224,19 +224,19 @@ public partial class DetailPanelBuilder
         var dbEntry = _window.ViewModel.GetDbUnrealEntry(card.GameName);
         if (dbEntry != null)
         {
-            if (string.Equals(dbEntry.Status, "Done", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(dbEntry.Status, "完成", StringComparison.OrdinalIgnoreCase))
             {
                 _window.DetailModStatusIcon.Text = "✓";
                 _window.DetailModStatusIcon.Foreground = UIFactory.Brush(ResourceKeys.AccentGreenBrush);
                 _window.DetailModStatusIcon.Visibility = Visibility.Visible;
-                ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR mod complete");
+                ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR 模组已完成");
             }
-            else if (string.Equals(dbEntry.Status, "WIP", StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(dbEntry.Status, "制作中", StringComparison.OrdinalIgnoreCase))
             {
                 _window.DetailModStatusIcon.Text = "🔨";
                 _window.DetailModStatusIcon.Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush);
                 _window.DetailModStatusIcon.Visibility = Visibility.Visible;
-                ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR mod in progress");
+                ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR 模组制作中");
             }
             else
             {

@@ -13,7 +13,7 @@ public partial class GameCardViewModel
     {
         get
         {
-            if (IsInstalling) return "Installing...";
+            if (IsInstalling) return "安装中...";
             if (IsRtxHdrEnabled) return "Configure RTX HDR";
             if (!IsRsInstalled && !ExcludeFromUpdateAllReShade && Mod?.SnapshotUrl != null && !IsExternalOnly)
                 return "⚠  ReShade required";
@@ -74,10 +74,10 @@ public partial class GameCardViewModel
             {
                 // External-only: no RenoDX to install, only ReShade
                 if (RsStatus == GameStatus.UpdateAvailable) return "⬆  Update ReShade";
-                if (RsStatus == GameStatus.Installed) return "↺  Reinstall ReShade";
-                return "⬇  Install ReShade";
+                if (RsStatus == GameStatus.Installed) return "↺  重新安装 ReShade";
+                return "⬇  安装 ReShade";
             }
-            if (AnyUpdateAvailable) return "⬆  Update All";
+            if (AnyUpdateAvailable) return "⬆  全部更新";
             if (Status == GameStatus.Installed) return "↺  Reinstall All";
             return "⬇  Install All";
         }
@@ -108,7 +108,7 @@ public partial class GameCardViewModel
     public string RdxStatusText => IsInstalling ? "Installing…"
         : Status == GameStatus.UpdateAvailable ? (RdxInstalledVersion ?? "Update")
         : Status == GameStatus.Installed       ? (RdxInstalledVersion ?? "Installed")
-        : Mod?.SnapshotUrl != null             ? "Ready" : "—";
+        : Mod?.SnapshotUrl != null             ? "就绪" : "—";
     public string RdxStatusColor => IsInstalling ? "#D4A856"
         : Status == GameStatus.UpdateAvailable ? "#B898E8"
         : Status == GameStatus.Installed       ? "#5ECB7D"

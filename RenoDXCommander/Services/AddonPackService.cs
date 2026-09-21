@@ -608,7 +608,7 @@ public class AddonPackService : IAddonPackService
 
             if (!anySucceeded)
             {
-                progress?.Report(($"❌ Download failed for {entry.PackageName}", 0));
+                progress?.Report(($"❌ 下载失败 for {entry.PackageName}", 0));
                 return;
             }
 
@@ -622,7 +622,7 @@ public class AddonPackService : IAddonPackService
         catch (Exception ex)
         {
             CrashReporter.Log($"[AddonPackService.DownloadAddonAsync] Failed for '{entry.PackageName}' — {ex.Message}");
-            progress?.Report(($"❌ Download failed: {ex.Message}", 0));
+            progress?.Report(($"❌ 下载失败: {ex.Message}", 0));
         }
     }
 

@@ -915,10 +915,10 @@ public partial class DialogService
                     FontSize = 13,
                     Text = "Installing the Vulkan ReShade layer requires writing to C:\\ProgramData\\ReShade\\ " +
                            "and modifying system registry keys, which needs administrator privileges.\n\n" +
-                           "Enable Admin Mode — RHI will always launch elevated (no UAC prompt after setup).\n\n" +
+                           "Enable 管理员模式 — RHI will always launch elevated (no UAC prompt after setup).\n\n" +
                            "Restart as Admin — one-time elevated restart to complete this install.",
                 },
-                PrimaryButtonText = "Enable Admin Mode",
+                PrimaryButtonText = "Enable 管理员模式",
                 SecondaryButtonText = "Restart as Admin",
                 CloseButtonText = "Cancel",
                 XamlRoot = _window.Content.XamlRoot,
@@ -958,7 +958,7 @@ public partial class DialogService
     private static void CreateAdminTaskAndRestart()
     {
         var exePath = Environment.ProcessPath ?? System.Reflection.Assembly.GetExecutingAssembly().Location;
-        var taskName = "RHI Admin Mode";
+        var taskName = "RHI 管理员模式";
 
         // Create the task (triggers UAC)
         var createArgs = $"/Create /TN \"{taskName}\" /TR \"\\\"{exePath}\\\"\" /SC ONCE /ST 00:00 /SD 01/01/2000 /RL HIGHEST /F";

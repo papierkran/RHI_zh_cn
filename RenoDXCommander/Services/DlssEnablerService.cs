@@ -143,7 +143,7 @@ public class DlssEnablerService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[DlssEnablerService.EnsureStagingAsync] Download failed ({downloadUrl}) — {ex.Message}");
+            _crashReporter.Log($"[DlssEnablerService.EnsureStagingAsync] 下载失败 ({downloadUrl}) — {ex.Message}");
             progress?.Report(($"DLSS Enabler download failed: {ex.Message}", 0));
             return;
         }

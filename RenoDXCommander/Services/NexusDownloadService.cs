@@ -209,7 +209,7 @@ public class NexusDownloadService
             if (!response.IsSuccessStatusCode)
             {
                 CrashReporter.Log($"[NexusDownloadService.DownloadToTempAsync] HTTP {(int)response.StatusCode}");
-                progress?.Report(($"Download failed: HTTP {(int)response.StatusCode}", 0));
+                progress?.Report(($"下载失败: HTTP {(int)response.StatusCode}", 0));
                 return null;
             }
 
@@ -253,7 +253,7 @@ public class NexusDownloadService
         catch (Exception ex)
         {
             CrashReporter.Log($"[NexusDownloadService.DownloadToTempAsync] Failed — {ex.Message}");
-            progress?.Report(($"Download failed: {ex.Message}", 0));
+            progress?.Report(($"下载失败: {ex.Message}", 0));
             return null;
         }
     }

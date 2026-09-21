@@ -166,8 +166,8 @@ public partial class DlssPresetService
 
     public static readonly (string Name, uint Value)[] GSyncEnableOptions =
     [
-        ("Enabled", 0x00000001),
-        ("Disabled", 0x00000000),
+        ("已启用", 0x00000001),
+        ("已禁用", 0x00000000),
     ];
 
     public static readonly (string Name, uint Value)[] FpsLimiterPresets =

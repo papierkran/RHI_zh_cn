@@ -24,7 +24,7 @@ public partial class DetailPanelBuilder
         var nvSettings   = _window.ViewModel.Settings;
         bool nvCollapsed = nvSettings.CollapsedDetailSections.Contains(nvSectionKey);
 
-        var nvidiaHeaderText = "Nvidia Profile Overrides";
+        var nvidiaHeaderText = "Nvidia Profile Overrides（NVIDIA 配置覆盖）";
         var driverVer = _dlssPresetService.DriverVersionString;
         if (!string.IsNullOrEmpty(driverVer))
             nvidiaHeaderText += $" — Driver {driverVer}";
@@ -414,7 +414,7 @@ public partial class DetailPanelBuilder
                     if (tc == null || string.IsNullOrEmpty(tc.InstallPath)) return;
 
                     deployNrBtn.IsEnabled = false;
-                    deployNrBtn.Content = "Downloading...";
+                    deployNrBtn.Content = "下载中...";
 
                     try
                     {
@@ -582,7 +582,7 @@ public partial class DetailPanelBuilder
             var slVersionFromDll = card.StreamlineInstalledVersion;
             var slInstalledVersion = (hasStreamline && !string.IsNullOrEmpty(card.DlssDetection?.StreamlineFolder)
                 && DlssStreamlineService.IsCustomStreamlineActive(card.DlssDetection.StreamlineFolder)
-                && (string.IsNullOrEmpty(slVersionFromDll) || slVersionFromDll == "Unknown"))
+                && (string.IsNullOrEmpty(slVersionFromDll) || slVersionFromDll == "未知"))
                 ? "Custom"
                 : slVersionFromDll;
             var slCol = BuildDlssColumn("Streamline", slEnabled, dlssService.StreamlineVersions,

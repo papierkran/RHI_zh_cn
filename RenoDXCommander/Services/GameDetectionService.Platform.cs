@@ -214,7 +214,7 @@ public partial class GameDetectionService
                     {
                         var content = File.ReadAllText(file);
                         // Look for paths like E:\Games or D:\EA Games
-                        var pathMatches = Regex.Matches(content, @"[A-Z]:\\[^""'\r\n,}{]+");
+                        var pathMatches = Regex.Matches(content, @"[A-Z]:\\[^""'\r\n,}");
                         foreach (Match m in pathMatches)
                         {
                             var candidate = m.Value.TrimEnd('\\', '/');

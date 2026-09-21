@@ -112,7 +112,7 @@ public partial class MainViewModel
         }
         catch (Exception ex)
         {
-            card.DxvkActionMessage = $"❌ Install failed: {ex.Message}";
+            card.DxvkActionMessage = $"❌ 安装失败: {ex.Message}";
             _crashReporter.WriteCrashReport("InstallDxvk", ex, note: $"Game: {card.GameName}");
         }
         finally

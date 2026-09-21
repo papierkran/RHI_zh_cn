@@ -47,7 +47,7 @@ public class SettingsHandler
         _window.LoadingPanel.Visibility = Visibility.Collapsed;
         // Sync toggle state with ViewModel
         _window.CustomShadersCombo.SelectedIndex = ViewModel.Settings.GlobalShadersOff ? 0 : (ViewModel.Settings.UseCustomShaders ? 2 : 1);
-        _window.AboutVersionText.Text = $"v{CrashReporter.AppVersion}  ·  Simplified PC Gaming by RankFTW";
+        _window.AboutVersionText.Text = $"v{CrashReporter.AppVersion}  ·  简化 PC 游戏体验 by RankFTW";
         // Populate addon watch folder textbox
         _window.AddonWatchFolderBox.Text = ViewModel.Settings.AddonWatchFolder;
         // Populate screenshot path and per-game combo
@@ -466,11 +466,11 @@ public class SettingsHandler
 
         // Show confirmation dialog
         var appliedSettings = string.IsNullOrEmpty(screenshotPath)
-            ? "ReShade hotkeys and effect list style"
-            : "Screenshot path, ReShade hotkeys, and effect list style";
+            ? "ReShade 热键和效果列表样式"
+            : "截图路径、ReShade 热键和效果列表样式";
         var dialog = new ContentDialog
         {
-            Title = "Screenshots & Hotkeys",
+            Title = "截图和热键",
             Content = $"{appliedSettings} applied to {updatedCount} game{(updatedCount == 1 ? "" : "s")}.",
             CloseButtonText = "OK",
             XamlRoot = _window.Content.XamlRoot,
@@ -522,8 +522,8 @@ public class SettingsHandler
         {
             var emptyDialog = new ContentDialog
             {
-                Title = "Peak Nits",
-                Content = "Peak nits is not configured or is disabled.",
+                Title = "峰值尼特",
+                Content = "峰值尼特未配置或已禁用。",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
                 RequestedTheme = ElementTheme.Dark,
@@ -562,7 +562,7 @@ public class SettingsHandler
 
         var dialog = new ContentDialog
         {
-            Title = "Peak Nits",
+            Title = "峰值尼特",
             Content = $"Applied peak nits ({peakNits}) to {updatedCount} reshade.ini file{(updatedCount == 1 ? "" : "s")}.",
             CloseButtonText = "OK",
             XamlRoot = _window.Content.XamlRoot,
@@ -581,7 +581,7 @@ public class SettingsHandler
         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(logsDir) { UseShellExecute = true });
     }
 
-    private const string AdminTaskName = "RHI Admin Mode";
+    private const string AdminTaskName = "RHI 管理员模式";
     private bool _adminComboInit = true;
 
     /// <summary>
@@ -612,8 +612,8 @@ public class SettingsHandler
         {
             await DialogService.ShowSafeAsync(new ContentDialog
             {
-                Title = "Admin Mode",
-                Content = "UAC is disabled on this system — RHI always runs as administrator.",
+                Title = "管理员模式",
+                Content = "此系统已禁用 UAC — RHI 始终以管理员身份运行。",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
                 RequestedTheme = ElementTheme.Dark,
@@ -634,10 +634,10 @@ public class SettingsHandler
             // Show restart notice
             await DialogService.ShowSafeAsync(new ContentDialog
             {
-                Title = "Admin Mode",
+                Title = "管理员模式",
                 Content = enable
-                    ? "Admin Mode enabled. Restart RHI for it to take effect."
-                    : "Admin Mode disabled. RHI will launch normally on next start.",
+                    ? "管理员模式已启用。重启 RHI 使其生效。"
+                    : "管理员模式已禁用。RHI 将在下次启动时正常运行。",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
                 RequestedTheme = ElementTheme.Dark,
@@ -792,7 +792,7 @@ public class SettingsHandler
             {
                 await DialogService.ShowSafeAsync(new ContentDialog
                 {
-                    Title = "Game Data Copied",
+                    Title = "游戏数据已复制",
                     Content = $"Data for {ViewModel.AllCards.Count} games has been gathered and copied to your clipboard. Paste directly into Discord to share.",
                     CloseButtonText = "OK",
                     XamlRoot = fe.XamlRoot,
@@ -957,8 +957,8 @@ public class SettingsHandler
             {
                 await DialogService.ShowSafeAsync(new ContentDialog
                 {
-                    Title = "Logs Copied",
-                    Content = "All session logs have been archived and copied to your clipboard. Paste directly into Discord to share.",
+                    Title = "日志已复制",
+                    Content = "所有会话日志已归档并复制到剪贴板。直接粘贴到 Discord 中即可共享。",
                     CloseButtonText = "OK",
                     XamlRoot = fe.XamlRoot,
                 });
@@ -975,8 +975,8 @@ public class SettingsHandler
         // Show warning dialog
         var warningDialog = new ContentDialog
         {
-            Title = "⚠ Purge Staging Files",
-            Content = "This will delete cached DLSS, Streamline, and component staging files to free disk space.\n\nShaders, installed RenoDX addons, and version metadata are preserved.\n\nThese files will be re-downloaded automatically when needed.\n\nContinue?",
+            Title = "⚠ 清除暂存文件",
+            Content = "这将删除缓存的 DLSS、Streamline 和组件暂存文件以释放磁盘空间。\n\n着色器、已安装的 RenoDX 附加组件和版本元数据将被保留。\n\n这些文件将在需要时自动重新下载。\n\n继续？",
             PrimaryButtonText = "Purge",
             CloseButtonText = "Cancel",
             XamlRoot = _window.Content.XamlRoot,
@@ -1097,7 +1097,7 @@ public class SettingsHandler
 
             var resultDialog = new ContentDialog
             {
-                Title = "✅ Cache Purged",
+                Title = "✅ 缓存已清除",
                 Content = $"Deleted {filesDeleted} files, freed {sizeStr} of disk space.",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
@@ -1110,7 +1110,7 @@ public class SettingsHandler
             CrashReporter.Log($"[SettingsHandler.PurgeCachedFiles_Click] Failed: {ex.Message}");
             var errDialog = new ContentDialog
             {
-                Title = "❌ Purge Failed",
+                Title = "❌ 清除失败",
                 Content = $"An error occurred: {ex.Message}",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
@@ -1223,7 +1223,7 @@ public class SettingsHandler
         // Req 4.5: Show confirmation dialog with count of updated files
         var dialog = new ContentDialog
         {
-            Title = "ReShade UI Hotkey",
+            Title = "ReShade UI 热键",
             Content = $"Updated {updatedCount} reshade.ini file{(updatedCount == 1 ? "" : "s")}.",
             CloseButtonText = "OK",
             XamlRoot = _window.Content.XamlRoot,
@@ -1371,7 +1371,7 @@ public class SettingsHandler
 
         var dialog = new ContentDialog
         {
-            Title = "ReShade Screenshot Hotkey",
+            Title = "ReShade 截图热键",
             Content = $"Updated {updatedCount} reshade.ini file{(updatedCount == 1 ? "" : "s")}.",
             CloseButtonText = "OK",
             XamlRoot = _window.Content.XamlRoot,
@@ -1594,7 +1594,7 @@ public class SettingsHandler
             var panel = new StackPanel { Spacing = 8 };
             panel.Children.Add(new TextBlock
             {
-                Text = "Enter a custom FPS value (20-1000):",
+                Text = "输入自定义 FPS 值（20-1000）：",
                 FontSize = 12,
             });
             var inputBox = new TextBox
@@ -1606,7 +1606,7 @@ public class SettingsHandler
 
             var dialog = new ContentDialog
             {
-                Title = "Custom Target FPS",
+                Title = "自定义目标 FPS",
                 Content = panel,
                 PrimaryButtonText = "Set",
                 CloseButtonText = "Cancel",
@@ -1682,7 +1682,7 @@ public class SettingsHandler
         var refCheck = new CheckBox { Content = "RE Framework", IsChecked = !settings.GlobalSkipRefUpdates, FontSize = 12, Foreground = UIFactory.Brush(ResourceKeys.TextSecondaryBrush), Margin = new Thickness(0, 4, 0, 4) };
 
         var checkPanel = new StackPanel { Spacing = 0 };
-        checkPanel.Children.Add(new TextBlock { Text = "Include components in Update All globally:", FontSize = 12, Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush), Margin = new Thickness(0, 0, 0, 8) });
+        checkPanel.Children.Add(new TextBlock { Text = "全局将组件包含在“全部更新”中：", FontSize = 12, Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush), Margin = new Thickness(0, 0, 0, 8) });
         checkPanel.Children.Add(rsCheck);
         checkPanel.Children.Add(rdxCheck);
         checkPanel.Children.Add(ulCheck);
@@ -1692,7 +1692,7 @@ public class SettingsHandler
 
         var dialog = new ContentDialog
         {
-            Title = "Global Update Inclusion",
+            Title = "全局更新包含",
             Content = checkPanel,
             PrimaryButtonText = "Save",
             CloseButtonText = "Cancel",
@@ -1824,7 +1824,7 @@ public class SettingsHandler
 
         var dialog = new ContentDialog
         {
-            Title = "OptiScaler Hotkey",
+            Title = "OptiScaler 热键",
             Content = $"Updated {updatedCount} OptiScaler.ini file{(updatedCount == 1 ? "" : "s")}.",
             CloseButtonText = "OK",
             XamlRoot = _window.Content.XamlRoot,
@@ -1896,7 +1896,7 @@ public class SettingsHandler
 
         var dialog = new ContentDialog
         {
-            Title = "DXVK Variant Changed",
+            Title = "DXVK 变体已更改",
             Content = $"DXVK variant changed to {variantLabel}."
                 + (gamesWithDxvk.Count > 0
                     ? $"\n\nSwitching {gamesWithDxvk.Count} game(s) to the {variantLabel} build."
@@ -2109,18 +2109,18 @@ public class SettingsHandler
         }
         else
         {
-            _window.NexusStatusText.Text = "Not connected";
+            _window.NexusStatusText.Text = "未连接";
             _window.NexusStatusText.Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush);
             _window.NexusDisconnectRow.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
-            _window.NexusConnectBtn.Content = "Connect";
+            _window.NexusConnectBtn.Content = "连接";
         }
 
         // NXM handler status
         bool nxmRegistered = NxmProtocolHandler.IsRegistered();
-        _window.NxmStatusText.Text = nxmRegistered ? "RHI is the active nxm:// handler" : "Not registered";
+        _window.NxmStatusText.Text = nxmRegistered ? "RHI is the active nxm:// handler" : "未注册";
         _window.NxmStatusText.Foreground = UIFactory.Brush(
             nxmRegistered ? ResourceKeys.AccentGreenBrush : ResourceKeys.TextSecondaryBrush);
-        _window.NxmRegisterBtn.Content = nxmRegistered ? "Unregister" : "Register";
+        _window.NxmRegisterBtn.Content = nxmRegistered ? "Unregister" : "注册";
     }
 
     public async void NexusConnectBtn_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
@@ -2216,7 +2216,7 @@ public class SettingsHandler
             {
                 var result = await DialogService.ShowSafeAsync(new ContentDialog
                 {
-                    Title = "NXM Protocol Handler",
+                    Title = "NXM 协议处理程序",
                     Content = "Another application (e.g. Vortex or MO2) is already registered as the nxm:// handler. Registering RHI will replace it. Continue?",
                     PrimaryButtonText = "Register RHI",
                     CloseButtonText = "Cancel",

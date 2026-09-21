@@ -123,7 +123,7 @@ public class Rtx40MfgService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[Rtx40MfgService.EnsureStaging] Download failed — {ex.Message}");
+            _crashReporter.Log($"[Rtx40MfgService.EnsureStaging] 下载失败 — {ex.Message}");
         }
     }
 

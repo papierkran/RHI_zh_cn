@@ -478,7 +478,7 @@ public sealed partial class MainWindow : Window
                 };
                 var pickerDialog = new ContentDialog
                 {
-                    Title = "🌙 Install Luma Addon",
+                    Title = "🌙 安装 Luma Addon",
                     Content = new StackPanel
                     {
                         Spacing = 8,

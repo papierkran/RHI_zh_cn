@@ -216,7 +216,7 @@ public partial class App : Application
         {
             try
             {
-                CrashReporter.Log("[App.OnLaunched] Admin Mode enabled but not elevated — relaunching via scheduled task");
+                CrashReporter.Log("[App.OnLaunched] 管理员模式 enabled but not elevated — relaunching via scheduled task");
                 
                 // Pass minimized flag via signal file (schtasks /Run doesn't support extra args)
                 if (startMinimized)
@@ -226,7 +226,7 @@ public partial class App : Application
                     File.WriteAllText(Path.Combine(signalDir, "rhi_start_minimized"), "");
                 }
 
-                var psi = new System.Diagnostics.ProcessStartInfo("schtasks.exe", "/Run /TN \"RHI Admin Mode\"")
+                var psi = new System.Diagnostics.ProcessStartInfo("schtasks.exe", "/Run /TN \"RHI 管理员模式\"")
                 {
                     UseShellExecute = false,
                     CreateNoWindow = true,
@@ -238,7 +238,7 @@ public partial class App : Application
             }
             catch (Exception ex)
             {
-                CrashReporter.Log($"[App.OnLaunched] Admin Mode relaunch failed — continuing non-elevated: {ex.Message}");
+                CrashReporter.Log($"[App.OnLaunched] 管理员模式 relaunch failed — continuing non-elevated: {ex.Message}");
             }
         }
 
@@ -419,7 +419,7 @@ public partial class App : Application
     {
         try
         {
-            var psi = new System.Diagnostics.ProcessStartInfo("schtasks.exe", "/Query /TN \"RHI Admin Mode\" /FO LIST")
+            var psi = new System.Diagnostics.ProcessStartInfo("schtasks.exe", "/Query /TN \"RHI 管理员模式\" /FO LIST")
             {
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,

@@ -516,7 +516,7 @@ public partial class DxvkService
         var dlResp = await _http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
         if (!dlResp.IsSuccessStatusCode)
         {
-            CrashReporter.Log($"[DxvkService.DownloadFileAsync] Download failed ({dlResp.StatusCode})");
+            CrashReporter.Log($"[DxvkService.DownloadFileAsync] 下载失败 ({dlResp.StatusCode})");
             return false;
         }
 

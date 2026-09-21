@@ -388,7 +388,7 @@ public partial class DlssStreamlineService
             var response = await _http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cts.Token).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
             {
-                CrashReporter.Log($"[DlssStreamlineService.DownloadAndCacheAsync] Download failed ({response.StatusCode}) for {url}");
+                CrashReporter.Log($"[DlssStreamlineService.DownloadAndCacheAsync] 下载失败 ({response.StatusCode}) for {url}");
                 return;
             }
 
@@ -442,7 +442,7 @@ public partial class DlssStreamlineService
             var response = await _http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cts.Token).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
             {
-                CrashReporter.Log($"[DlssStreamlineService.DownloadAndCacheStreamlineAsync] Download failed ({response.StatusCode}) for {url}");
+                CrashReporter.Log($"[DlssStreamlineService.DownloadAndCacheStreamlineAsync] 下载失败 ({response.StatusCode}) for {url}");
                 return;
             }
 

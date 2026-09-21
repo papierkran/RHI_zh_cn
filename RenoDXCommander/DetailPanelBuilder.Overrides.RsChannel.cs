@@ -326,7 +326,7 @@ public partial class DetailPanelBuilder
                         Title = "Vulkan ReShade Channel Override",
                         Content = "Vulkan games share a global ReShade layer.\n\n" +
                             "Changing the channel for this game will change it for ALL Vulkan games.",
-                        PrimaryButtonText = "Apply to All Vulkan Games",
+                        PrimaryButtonText = "Apply to All Vulkan 游戏",
                         CloseButtonText = "Cancel",
                         XamlRoot = _window.Content.XamlRoot,
                         RequestedTheme = ElementTheme.Dark,
@@ -445,7 +445,7 @@ public partial class DetailPanelBuilder
                         Title = "Vulkan ReShade Channel Override",
                         Content = "Vulkan games share a global ReShade layer.\n\n" +
                             "Changing the channel for this game will change it for ALL Vulkan games.",
-                        PrimaryButtonText = "Apply to All Vulkan Games",
+                        PrimaryButtonText = "Apply to All Vulkan 游戏",
                         CloseButtonText = "Cancel",
                         XamlRoot = _window.Content.XamlRoot,
                         RequestedTheme = ElementTheme.Dark,
@@ -552,7 +552,7 @@ public partial class DetailPanelBuilder
         ctx.UpdateSummaryText = updateSummaryText; // assign for reset action to use
 
         var toggleRow = new StackPanel { Spacing = 0 };
-        ToolTipService.SetToolTip(updateInclusionBtn, "Choose which components are included in Update All for this game.");
+        ToolTipService.SetToolTip(updateInclusionBtn, "Choose which components are included in 全部更新 for this game.");
         toggleRow.Children.Add(updateInclusionBtn);
         toggleRow.Children.Add(updateSummaryText);
 

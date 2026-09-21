@@ -238,8 +238,8 @@ public class UpdateService : IUpdateService
         }
         catch (Exception ex)
         {
-            CrashReporter.Log($"[UpdateService.DownloadInstallerAsync] Download failed — {ex.Message}");
-            progress?.Report(($"Download failed: {ex.Message}", 0));
+            CrashReporter.Log($"[UpdateService.DownloadInstallerAsync] 下载失败 — {ex.Message}");
+            progress?.Report(($"下载失败: {ex.Message}", 0));
             return null;
         }
     }

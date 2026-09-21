@@ -74,7 +74,7 @@ public static class GameReportEncoder
                     noteBox,
                 },
             },
-            PrimaryButtonText = "Copy to Clipboard",
+            PrimaryButtonText = "复制到剪贴板",
             CloseButtonText = "Cancel",
             XamlRoot = xamlRoot,
             RequestedTheme = ElementTheme.Dark,

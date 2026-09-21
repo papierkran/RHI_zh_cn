@@ -78,7 +78,7 @@ public partial class DialogService
                         Text         = $"A new version of RHI is available!\n\n" +
                                        $"Installed:  v{updateInfo.CurrentVersion}\n" +
                                        $"Available:  v{updateInfo.DisplayVersion ?? updateInfo.RemoteVersion.ToString()}\n\n" +
-                                       "Would you like to update now?",
+                                       "是否现在更新？",
                     },
                 },
             },
@@ -161,7 +161,7 @@ public partial class DialogService
             // Download failed — update dialog to show error with a Close button
             _dispatcherQueue.TryEnqueue(() =>
             {
-                progressText.Text = "❌ Download failed. Please try again later or download manually from GitHub.";
+                progressText.Text = "❌ 下载失败。 Please try again later or download manually from GitHub.";
                 progressBar.Value = 0;
                 downloadDlg.CloseButtonText = "Close";
             });
@@ -268,7 +268,7 @@ public partial class DialogService
 
         var dlg = new ContentDialog
         {
-            Title              = "📋 Patch Notes — What's New",
+            Title              = "📋 补丁说明 — What's New",
             Content            = scrollViewer,
             CloseButtonText    = "Close",
             XamlRoot           = _window.Content.XamlRoot,

@@ -26,7 +26,7 @@ public partial class GameCardViewModel
     public Visibility DofFixRowVisibility =>
         IsDofFixEligible ? Visibility.Visible : Visibility.Collapsed;
 
-    public string DofFixActionLabel => DofFixIsInstalling ? "Installing..."
+    public string DofFixActionLabel => DofFixIsInstalling ? "安装中..."
         : DofFixStatus == GameStatus.UpdateAvailable ? "⬆  Update DOF Fix"
         : DofFixStatus == GameStatus.Installed ? "↺  Reinstall DOF Fix"
         : "⬇  Install DOF Fix";
@@ -42,7 +42,7 @@ public partial class GameCardViewModel
     public string DofFixStatusText => DofFixIsInstalling ? "Installing…"
         : DofFixStatus == GameStatus.UpdateAvailable ? "Update"
         : DofFixStatus == GameStatus.Installed ? (DofFixInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string DofFixStatusColor => DofFixIsInstalling ? "#D4A856"
         : DofFixStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : DofFixStatus == GameStatus.Installed ? "#5ECB7D"

@@ -120,7 +120,7 @@ public partial class GameCardViewModel
             }
 
             // Fallback: read from sl.common.dll path (normal versioned installs)
-            if (string.IsNullOrEmpty(versionFromPath) || versionFromPath == "Unknown")
+            if (string.IsNullOrEmpty(versionFromPath) || versionFromPath == "未知")
             {
                 if (DlssDetection.StreamlineInterposerPath != null)
                     versionFromPath = DlssStreamlineService.FormatVersion(service.GetFileVersion(DlssDetection.StreamlineInterposerPath));
@@ -128,7 +128,7 @@ public partial class GameCardViewModel
 
             // If sl.common.dll is older than another DLL in the same folder
             // use the highest-versioned DLL.
-            if (!string.IsNullOrEmpty(versionFromPath) && versionFromPath != "Unknown" && folder != null)
+            if (!string.IsNullOrEmpty(versionFromPath) && versionFromPath != "未知" && folder != null)
             {
                 foreach (var knownDll in DlssStreamlineService.KnownStreamlineDlls)
                 {
@@ -136,7 +136,7 @@ public partial class GameCardViewModel
                     var candidatePath = System.IO.Path.Combine(folder, knownDll);
                     if (!System.IO.File.Exists(candidatePath)) continue;
                     var candidateVersion = DlssStreamlineService.FormatVersion(service.GetFileVersion(candidatePath));
-                    if (!string.IsNullOrEmpty(candidateVersion) && candidateVersion != "Unknown"
+                    if (!string.IsNullOrEmpty(candidateVersion) && candidateVersion != "未知"
                         && System.Version.TryParse(candidateVersion, out var cv)
                         && System.Version.TryParse(versionFromPath, out var iv) && cv > iv)
                     {
@@ -147,7 +147,7 @@ public partial class GameCardViewModel
             }
 
             // Last resort: try sl.common.dll even without custom marker
-            if ((string.IsNullOrEmpty(versionFromPath) || versionFromPath == "Unknown") && folder != null)
+            if ((string.IsNullOrEmpty(versionFromPath) || versionFromPath == "未知") && folder != null)
             {
                 var commonPath = System.IO.Path.Combine(folder, "sl.common.dll");
                 if (System.IO.File.Exists(commonPath))

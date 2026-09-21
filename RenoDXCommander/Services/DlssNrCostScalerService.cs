@@ -109,7 +109,7 @@ public class DlssNrCostScalerService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[DlssNrCostScalerService.EnsureStaging] Download failed — {ex.Message}");
+            _crashReporter.Log($"[DlssNrCostScalerService.EnsureStaging] 下载失败 — {ex.Message}");
         }
     }
 
