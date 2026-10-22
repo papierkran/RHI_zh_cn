@@ -651,7 +651,7 @@ public class Renodx5AddonService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[Renodx5AddonService.DownloadAndStageAsync] Download failed for '{tagPrefix}' — {ex.Message}");
+            _crashReporter.Log($"[Renodx5AddonService.DownloadAndStageAsync] 下载失败 for '{tagPrefix}' — {ex.Message}");
             progress?.Report(($"{displayName} download failed: {ex.Message}", 0));
             return;
         }
@@ -1192,7 +1192,7 @@ public class Renodx5AddonService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[Renodx5AddonService.EnsureVersionStagedAsync] Download failed for v{version} ({addonType}) — {ex.Message}");
+            _crashReporter.Log($"[Renodx5AddonService.EnsureVersionStagedAsync] 下载失败 for v{version} ({addonType}) — {ex.Message}");
             return false;
         }
     }

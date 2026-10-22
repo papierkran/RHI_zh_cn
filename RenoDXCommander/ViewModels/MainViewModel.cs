@@ -541,7 +541,7 @@ public partial class MainViewModel : ObservableObject
         {
             if (string.IsNullOrWhiteSpace(mod.Name)) continue;
             var rdxUrl    = mod.SnapshotUrl ?? mod.NexusUrl ?? mod.DiscordUrl;
-            var rdxStatus = mod.Status == "🚧" ? "WIP" : "Done";
+            var rdxStatus = mod.Status == "🚧" ? "制作中" : "完成";
             dict[mod.Name] = new HdrModEntry(
                 Name:        mod.Name,
                 RenoDXStatus: rdxStatus,
@@ -554,8 +554,8 @@ public partial class MainViewModel : ObservableObject
         foreach (var kv in _dbUnrealEntries)
         {
             if (string.IsNullOrWhiteSpace(kv.Key)) continue;
-            var ueStatus = string.Equals(kv.Value.Status, "WIP", StringComparison.OrdinalIgnoreCase)
-                ? "WIP" : "Done";
+            var ueStatus = string.Equals(kv.Value.Status, "制作中", StringComparison.OrdinalIgnoreCase)
+                ? "制作中" : "完成";
             if (!dict.ContainsKey(kv.Key))
             {
                 dict[kv.Key] = new HdrModEntry(
@@ -573,8 +573,8 @@ public partial class MainViewModel : ObservableObject
         {
             if (string.IsNullOrWhiteSpace(kv.Key)) continue;
             if (dict.ContainsKey(kv.Key)) continue; // named mod already covers it
-            var unityStatus = string.Equals(kv.Value.Status, "WIP", StringComparison.OrdinalIgnoreCase)
-                ? "WIP" : "Done";
+            var unityStatus = string.Equals(kv.Value.Status, "制作中", StringComparison.OrdinalIgnoreCase)
+                ? "制作中" : "完成";
             dict[kv.Key] = new HdrModEntry(
                 Name:        kv.Value.Name,
                 RenoDXStatus: unityStatus,
@@ -588,7 +588,7 @@ public partial class MainViewModel : ObservableObject
         {
             if (string.IsNullOrWhiteSpace(luma.Name) || luma.IsGenericLuma) continue;
             var lumaUrl    = luma.DownloadUrl ?? luma.NexusUrl;
-            var lumaStatus = luma.Status == "🚧" ? "WIP" : "Done";
+            var lumaStatus = luma.Status == "🚧" ? "制作中" : "完成";
             if (dict.TryGetValue(luma.Name, out var existing))
             {
                 dict[luma.Name] = existing with { LumaStatus = lumaStatus, LumaUrl = lumaUrl };
@@ -643,7 +643,7 @@ public partial class MainViewModel : ObservableObject
 
     // Settings file I/O delegated to SettingsViewModel
 
-    [ObservableProperty] private string _statusText = "Loading...";
+    [ObservableProperty] private string _statusText = "加载中...";
     [ObservableProperty] private string _subStatusText = "";
     [ObservableProperty] private bool _isLoading = true;
     [ObservableProperty] private bool _isBackgroundScanning;

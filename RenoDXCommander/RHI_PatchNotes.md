@@ -1,38 +1,38 @@
-⚠ **If you were already connected to GitHub, please sign in again after this update** — a bug in previous versions caused expired sessions to go undetected, which is now fixed, but your stored session may already be stale.
+⚠ **如果你之前已连接 GitHub，请在更新后重新登录**——旧版本存在无法发现会话过期的问题，现已修复，但已保存的登录状态可能已经失效。
 
-⚠ **Sign in with GitHub — strongly recommended** — almost everything RHI downloads comes from GitHub: ReShade, RenoDX, OptiScaler, DLSS versions, shader packs, Luma mods, manifests, update checks, and more. Without a GitHub account connected, all of this shares a single limit of **60 requests per hour**. That quota runs out fast, and when it does, downloads silently fail — installs abort, update checks are skipped, and staging shows as unavailable with no obvious reason why. Signing in raises the limit to **5,000 requests per hour**.
+⚠ **强烈建议登录 GitHub**——RHI 下载的几乎所有内容都来自 GitHub，包括 ReShade、RenoDX、OptiScaler、DLSS 版本、着色器包、Luma Mod、清单和更新检查等。未连接 GitHub 账号时，这些请求共用每小时 **60 次**的限额，很容易耗尽；限额用完后，下载会静默失败，安装中止、更新检查跳过，暂存内容也会显示不可用。登录后限额提高至每小时 **5,000 次**。
 
-To connect: open **Settings → GitHub API** and click **Sign in with GitHub**. Takes about 30 seconds. Or paste a Personal Access Token (PAT) — no scopes needed, just generate one at [github.com/settings/tokens](https://github.com/settings/tokens) and paste it in.
+连接方法：打开 **设置 → GitHub API**，点击 **使用 GitHub 登录**，大约需要 30 秒。也可以粘贴个人访问令牌（PAT）；无需任何权限范围，在 [github.com/settings/tokens](https://github.com/settings/tokens) 创建后粘贴即可。
 
 ## v2.8.7
 
-### New
+### 新增功能
 
 **OptiScaler F5 DLSSNR**
-- Added F5 DLSSNR as a new OptiScaler variant, available in the OptiScaler ⚙ cog version selector alongside Stable, Nightly, and DLSS NR.
-- Based on janblade's fork with multi-pass Neural Rendering support and a bundled NR forwarder (`nvngx.dll_dlssnr.dll`). Requires a separately staged `nvngx_dlssnr.dll` runtime (same as the DLSS NR variant).
-- Auto-updates alongside other OptiScaler variants and appears in the update history.
+- 新增 F5 DLSSNR 作为 OptiScaler 变体，可在 OptiScaler 齿轮菜单的版本选择器中使用，与 Stable、Nightly 和 DLSS NR 并列。
+- 基于 janblade 的分支，支持多次神经渲染并内置 NR 转发器（`nvngx.dll_dlssnr.dll`）。需要单独暂存 `nvngx_dlssnr.dll` 运行时，与 DLSS NR 变体相同。
+- 与其他 OptiScaler 变体一样自动更新，并记录在更新历史中。
 
-### Changes
+### 改进
 
-**OptiScaler Settings**
-- Added a note in the OptiScaler ⚙ cog above the Deploy OptiScaler.ini button clarifying that settings in the cog apply in real time and the deploy button is only for seeding a fresh ini — it does not write the configured settings.
+**OptiScaler 设置**
+- 在 OptiScaler 齿轮菜单的“部署 OptiScaler.ini”按钮上方添加说明：齿轮菜单中的设置会实时生效；部署按钮仅用于生成新的 ini 文件，不会写入上方配置的设置。
 
-### Bug Fixes
+### 问题修复
 
 **OptiScaler Nightly**
-- Fixed nightly builds not auto-updating to newer builds when the update check cooldown was active. The available builds list is now checked at startup and on every refresh, and update detection no longer depends on the update check running first.
-- Fixed clicking Update on a nightly game installing the old build instead of downloading the new one. The install flow now always downloads the latest nightly when an update is flagged, and re-resolves the staging directory after download.
-- The Info button and version number on the OptiScaler row now link to the nightly GitHub page and releases when the Nightly variant is active.
+- 修复更新检查处于冷却期时 Nightly 构建无法自动升级的问题。现在会在启动时及每次刷新时检查可用构建，检测更新不再依赖先运行更新检查。
+- 修复在 Nightly 游戏上点击“更新”却安装旧构建的问题。检测到更新后，安装流程现在始终下载最新 Nightly，并在下载后重新解析暂存目录。
+- 选择 Nightly 变体时，OptiScaler 行中的信息按钮和版本号现在会链接到 Nightly 的 GitHub 页面及发行版。
 
 **RTX Encore**
-- Fixed RTX Encore not auto-updating when a new beta release was available. The update check is now wired into the standard component update flow and the update appears in the update history.
+- 修复有新的 Beta 发行版时 RTX Encore 不会自动更新的问题。现已接入标准组件更新流程，更新也会显示在更新历史中。
 
-**ReShade Screenshot Discord Fix**
-- Fixed the 32-bit addon not being deployed to 32-bit games. When downloading from GitHub releases, RHI now stages both the `.addon32` and `.addon64` files when both are available as release assets.
+**ReShade 截图 Discord 修复加载项**
+- 修复 32 位加载项未部署到 32 位游戏的问题。从 GitHub 发行版下载时，如果同时提供 `.addon32` 和 `.addon64` 文件，RHI 现在会将两者都暂存。
 
-**OptiScaler Detection**
-- Fixed tools that reference OptiScaler internally (e.g. SCSKiller) being incorrectly detected as an OptiScaler installation. The binary signature scan now only runs when the file has no version resource — if the file clearly identifies itself as a different tool, it is no longer flagged as OptiScaler.
+**OptiScaler 检测**
+- 修复内部引用 OptiScaler 的工具（例如 SCSKiller）被误判为 OptiScaler 安装的问题。二进制签名扫描现在只会在文件没有版本资源时运行；如果文件信息表明它属于其他工具，就不会再被标记为 OptiScaler。
 
 ---
 

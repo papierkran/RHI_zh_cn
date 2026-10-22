@@ -68,7 +68,7 @@ public partial class DetailPanelBuilder
         };
         var ovTitle = new TextBlock
         {
-            Text       = "Game Overrides",
+            Text       = "Game Overrides（游戏覆盖）",
             FontSize   = 13,
             FontWeight = Microsoft.UI.Text.FontWeights.SemiBold,
             Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush),

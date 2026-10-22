@@ -468,10 +468,10 @@ public static class ControlUePostInstallService
 
             // ── Apply OptiScaler INI settings ──────────────────────────────────
             // [Upscalers]
-            OptiScalerService.SetOptiScalerIniValue(installPath, "Upscalers", "Dx12Upscaler", "dlss");
+            OptiScalerService.SetOptiScalerIniValue(installPath, "超分辨率器", "Dx12Upscaler", "dlss");
 
             // [FrameGen]
-            OptiScalerService.SetOptiScalerIniValue(installPath, "FrameGen", "Enabled",   "true");
+            OptiScalerService.SetOptiScalerIniValue(installPath, "FrameGen", "已启用",   "true");
             OptiScalerService.SetOptiScalerIniValue(installPath, "FrameGen", "FGInput",   "upscaler");
             OptiScalerService.SetOptiScalerIniValue(installPath, "FrameGen", "FGOutput",  "dlssg");
 

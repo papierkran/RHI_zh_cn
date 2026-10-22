@@ -40,19 +40,19 @@ public partial class GameCardViewModel
     public bool IsLumaNotInstalling => !IsLumaInstalling;
     public Visibility LumaProgressVisibility => IsLumaInstalling ? Visibility.Visible : Visibility.Collapsed;
     public Visibility LumaMessageVisibility => string.IsNullOrEmpty(LumaActionMessage) ? Visibility.Collapsed : Visibility.Visible;
-    public string LumaActionLabel => IsLumaInstalling ? "Installing..."
+    public string LumaActionLabel => IsLumaInstalling ? "安装中..."
         : (!IsRsInstalled && !ExcludeFromUpdateAllReShade && LumaStatus == GameStatus.NotInstalled) ? "⚠  ReShade required"
         : LumaStatus == GameStatus.UpdateAvailable ? "⬆  Update Luma"
-        : LumaStatus == GameStatus.Installed ? "↺  Reinstall Luma"
+        : LumaStatus == GameStatus.Installed ? "↺  重新安装 Luma"
         : LumaIsExternalOnly ? "Get on Nexus Mods"
-        : "⬇  Install Luma";
+        : "⬇  安装 Luma";
 
     // Component table: Luma short status/action (consistent with RS/DC/RDX)
     public string LumaStatusText => IsLumaInstalling ? "Installing…"
         : LumaStatus == GameStatus.UpdateAvailable ? "Update"
         : LumaStatus == GameStatus.Installed
             ? (LumaRecord?.InstalledBuildNumber > 0 ? $"Build {LumaRecord.InstalledBuildNumber}" : "Installed")
-        : "Ready";
+        : "就绪";
     public string LumaStatusColor => IsLumaInstalling ? "#D4A856"
         : LumaStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : LumaStatus == GameStatus.Installed       ? "#5ECB7D"

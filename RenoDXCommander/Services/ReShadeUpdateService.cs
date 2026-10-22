@@ -169,7 +169,7 @@ public class ReShadeUpdateService : IReShadeUpdateService
             }
             catch (Exception ex)
             {
-                CrashReporter.Log($"[ReShadeUpdateService.EnsureLatestAsync] Download failed — {ex.Message}");
+                CrashReporter.Log($"[ReShadeUpdateService.EnsureLatestAsync] 下载失败 — {ex.Message}");
                 // Clean up partial download
                 var tempPath = exePath + ".tmp";
                 try { if (File.Exists(tempPath)) File.Delete(tempPath); } catch (Exception cleanupEx) { CrashReporter.Log($"[ReShadeUpdateService.EnsureLatestAsync] Failed to clean up partial download — {cleanupEx.Message}"); }

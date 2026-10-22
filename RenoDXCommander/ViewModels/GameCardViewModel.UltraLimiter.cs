@@ -12,11 +12,11 @@ public partial class GameCardViewModel
     public string UlStatusDot => UlStatus == GameStatus.UpdateAvailable ? "🟢"
         : UlStatus == GameStatus.Installed ? "🟢" : "⚪";
 
-    public string UlActionLabel => UlIsInstalling ? "Installing..."
+    public string UlActionLabel => UlIsInstalling ? "安装中..."
         : (!IsRsInstalled && !ExcludeFromUpdateAllReShade) ? "⚠  ReShade required"
         : UlStatus == GameStatus.UpdateAvailable ? "⬆  Update ReLimiter"
-        : UlStatus == GameStatus.Installed ? "↺  Reinstall ReLimiter"
-        : "⬇  Install ReLimiter";
+        : UlStatus == GameStatus.Installed ? "↺  重新安装 ReLimiter"
+        : "⬇  安装 ReLimiter";
 
     public string UlBtnBackground  => UlStatus == GameStatus.UpdateAvailable ? "#201838" : "#182840";
     public string UlBtnForeground  => UlStatus == GameStatus.UpdateAvailable ? "#B898E8" : "#7AACDD";
@@ -29,7 +29,7 @@ public partial class GameCardViewModel
     public string UlStatusText => UlIsInstalling ? "Installing…"
         : UlStatus == GameStatus.UpdateAvailable ? "Update"
         : UlStatus == GameStatus.Installed ? (UlInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string UlStatusColor => UlIsInstalling ? "#D4A856"
         : UlStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : UlStatus == GameStatus.Installed ? "#5ECB7D"

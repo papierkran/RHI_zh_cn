@@ -247,13 +247,13 @@ public class UpdateService : IUpdateService
         }
         catch (Exception ex)
         {
-            CrashReporter.Log($"[UpdateService.DownloadInstallerAsync] Download failed — {ex.Message}");
+            CrashReporter.Log($"[UpdateService.DownloadInstallerAsync] 下载失败 — {ex.Message}");
             if (tempPath != null)
             {
                 try { File.Delete(tempPath); }
                 catch (Exception cleanupError) { CrashReporter.Log($"[UpdateService] Partial download cleanup failed — {cleanupError.Message}"); }
             }
-            progress?.Report(($"Download failed: {ex.Message}", 0));
+            progress?.Report(($"下载失败: {ex.Message}", 0));
             return null;
         }
     }

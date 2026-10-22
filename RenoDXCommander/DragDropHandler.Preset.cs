@@ -82,7 +82,7 @@ public partial class DragDropHandler
         {
             var noGamesDialog = new ContentDialog
             {
-                Title = "No Games Available",
+                Title = "没有可用游戏",
                 Content = "No games are currently detected. Add a game first.",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
@@ -127,7 +127,7 @@ public partial class DragDropHandler
 
         var pickDialog = new ContentDialog
         {
-            Title = "🎨 Install ReShade Preset",
+            Title = "🎨 安装 ReShade Preset",
             Content = panel,
             PrimaryButtonText = "Next",
             CloseButtonText = "Cancel",

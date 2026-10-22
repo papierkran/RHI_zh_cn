@@ -107,7 +107,7 @@ public class DofFixService : IDofFixService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[DofFixService.EnsureStagingAsync] Download failed ({downloadUrl}) — {ex.Message}");
+            _crashReporter.Log($"[DofFixService.EnsureStagingAsync] 下载失败 ({downloadUrl}) — {ex.Message}");
         }
 
         progress?.Report(("DOF Fix ready", 100));

@@ -146,7 +146,7 @@ public class ModInstallService : IModInstallService
         // ── Step 3: fresh download if no usable cache ─────────────────────────────
         if (!usedCache)
         {
-            progress?.Report(("Downloading...", 0));
+            progress?.Report(("下载中...", 0));
             HttpResponseMessage? response = null;
             var tried      = new List<string>();
             var candidates = new List<string> { resolvedUrl };

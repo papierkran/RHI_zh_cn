@@ -24,9 +24,9 @@ public partial class GameCardViewModel
     public string OsStatusDot => OsStatus == GameStatus.UpdateAvailable ? "🟢"
         : OsStatus == GameStatus.Installed ? "🟢" : "⚪";
 
-    public string OsActionLabel => OsIsInstalling ? "Installing..."
+    public string OsActionLabel => OsIsInstalling ? "安装中..."
         : OsStatus == GameStatus.UpdateAvailable ? "⬆  Update OptiScaler"
-        : OsStatus == GameStatus.Installed ? "↺  Reinstall OptiScaler"
+        : OsStatus == GameStatus.Installed ? "↺  重新安装 OptiScaler"
         : "⬇  Install OptiScaler";
 
     public string OsBtnBackground  => OsStatus == GameStatus.UpdateAvailable ? "#201838" : "#182840";
@@ -42,7 +42,7 @@ public partial class GameCardViewModel
     public string OsStatusText => OsIsInstalling ? "Installing…"
         : OsStatus == GameStatus.UpdateAvailable ? "Update"
         : OsStatus == GameStatus.Installed ? (OsInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string OsStatusColor => OsIsInstalling ? "#D4A856"
         : OsStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : OsStatus == GameStatus.Installed ? "#5ECB7D"

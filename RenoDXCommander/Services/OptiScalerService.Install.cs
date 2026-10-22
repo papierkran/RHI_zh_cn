@@ -570,7 +570,7 @@ public partial class OptiScalerService
         catch (Exception ex)
         {
             CrashReporter.Log($"[OptiScalerService.InstallAsync] {card.GameName} — {ex.Message}");
-            progress?.Report(($"Install failed: {ex.Message}", 0));
+            progress?.Report(($"安装失败: {ex.Message}", 0));
             return null;
         }
     }

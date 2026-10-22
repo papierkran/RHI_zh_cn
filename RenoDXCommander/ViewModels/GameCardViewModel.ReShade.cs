@@ -49,7 +49,7 @@ public partial class GameCardViewModel
     {
         get
         {
-            if (RsIsInstalling) return "Installing...";
+            if (RsIsInstalling) return "安装中...";
             // RE Engine games require REFramework before ReShade can be installed
             // (unless user has excluded REF via Update Inclusion toggle)
             if (IsREEngineGame && !IsRefInstalled && !EffectiveLumaMode && !ExcludeFromUpdateAllRef)
@@ -64,8 +64,8 @@ public partial class GameCardViewModel
                 return "⬇  Install Vulkan Layer";
             }
             return RsStatus == GameStatus.UpdateAvailable ? "⬆  Update ReShade"
-                 : RsStatus == GameStatus.Installed       ? "↺  Reinstall ReShade"
-                 : "⬇  Install ReShade";
+                 : RsStatus == GameStatus.Installed       ? "↺  重新安装 ReShade"
+                 : "⬇  安装 ReShade";
         }
     }
 
@@ -84,7 +84,7 @@ public partial class GameCardViewModel
     public string RsStatusText => RsIsInstalling ? "Installing…"
         : RsStatus == GameStatus.UpdateAvailable ? (RsInstalledVersion ?? "Update")
         : RsStatus == GameStatus.Installed       ? (RsInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string RsStatusColor => RsIsInstalling ? "#D4A856"
         : RsStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : RsStatus == GameStatus.Installed       ? "#5ECB7D"

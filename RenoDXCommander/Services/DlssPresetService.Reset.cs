@@ -215,7 +215,7 @@ public partial class DlssPresetService
 
             _session.Save();
             ReloadSession();
-            CrashReporter.Log($"[DlssPresetService.ResetGlobalProfile] Cleared {globalDeleted} global base profile settings + reset Shader Pre-Compile");
+            CrashReporter.Log($"[DlssPresetService.ResetGlobalProfile] Cleared {globalDeleted} global base profile settings + reset 着色器预编译");
         }
         catch (Exception ex)
         {

@@ -367,7 +367,7 @@ public partial class DxvkService
             CrashReporter.Log($"[DxvkService.InstallAsync] {card.GameName} — {ex.Message}");
             CrashReporter.WriteCrashReport("DxvkService.InstallAsync", ex,
                 note: $"Game: {card.GameName}, Path: {card.InstallPath}");
-            progress?.Report(($"❌ Install failed: {ex.Message}", 0));
+            progress?.Report(($"❌ 安装失败: {ex.Message}", 0));
         }
     }
 
@@ -980,7 +980,7 @@ public partial class DxvkService
                     CrashReporter.Log(
                         $"[DxvkService.SwitchReShadeForDxvk] WARNING: {card.GameName}: " +
                         "Global Vulkan ReShade layer is not installed. DXVK games present as Vulkan " +
-                        "and require the layer. Install ReShade on a Vulkan game via the UI to set up the layer.");
+                        "and require the layer. 安装 ReShade on a Vulkan game via the UI to set up the layer.");
                 }
 
                 CrashReporter.Log($"[DxvkService.SwitchReShadeForDxvk] {card.GameName}: switched ReShade to Vulkan layer mode");

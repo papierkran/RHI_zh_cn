@@ -50,7 +50,7 @@ public partial class MainViewModel
         catch (Exception ex)
         {
             _crashReporter.Log($"[MainViewModel.InstallNexusModAsync] '{card.GameName}' — {ex.Message}");
-            DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = $"Install failed: {ex.Message}"; card.IsInstalling = false; });
+            DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = $"安装失败: {ex.Message}"; card.IsInstalling = false; });
         }
     }
 
@@ -133,7 +133,7 @@ public partial class MainViewModel
         catch (Exception ex)
         {
             _crashReporter.Log($"[MainViewModel.HandleNxmLinkAsync] '{card.GameName}' — {ex.Message}");
-            DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = $"Install failed: {ex.Message}"; card.IsInstalling = false; });
+            DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = $"安装失败: {ex.Message}"; card.IsInstalling = false; });
         }
     }
 
@@ -194,7 +194,7 @@ public partial class MainViewModel
         var tempPath = await nexusDl.DownloadToTempAsync(uri, progress).ConfigureAwait(false);
         if (tempPath == null)
         {
-            DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = "Download failed."; card.IsInstalling = false; });
+            DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = "下载失败。"; card.IsInstalling = false; });
             return;
         }
 
@@ -248,7 +248,7 @@ public partial class MainViewModel
                 var addonPath    = addonFiles[0];
                 var addonFileName = Path.GetFileName(addonPath);
 
-                DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = "Deploying..."; card.InstallProgress = 75; });
+                DispatcherQueue?.TryEnqueue(() => { card.ActionMessage = "部署中..."; card.InstallProgress = 75; });
 
                 // ── Deploy to game folder ─────────────────────────────────────
                 var deployDir = ModInstallService.GetAddonDeployPath(card.InstallPath);

@@ -63,7 +63,7 @@ public class UpdateOrchestrationService : IUpdateOrchestrationService
         foreach (var card in targets)
         {
             card.IsInstalling  = true;
-            card.ActionMessage = "Updating...";
+            card.ActionMessage = "更新中...";
 
             string? originalSnapshotUrl = card.Mod!.SnapshotUrl;
             bool swappedTo32 = card.Is32Bit && card.Mod.SnapshotUrl32 != null;
@@ -215,7 +215,7 @@ public class UpdateOrchestrationService : IUpdateOrchestrationService
             }
 
             card.RsIsInstalling  = true;
-            card.RsActionMessage = "Updating...";
+            card.RsActionMessage = "更新中...";
             try
             {
                 var progress = new Progress<(string msg, double pct)>(p =>
@@ -468,7 +468,7 @@ public class UpdateOrchestrationService : IUpdateOrchestrationService
         foreach (var card in targets)
         {
             card.RefIsInstalling = true;
-            card.RefActionMessage = "Updating...";
+            card.RefActionMessage = "更新中...";
             try
             {
                 var progress = new Progress<(string msg, double pct)>(p =>
@@ -513,7 +513,7 @@ public class UpdateOrchestrationService : IUpdateOrchestrationService
         foreach (var card in targets)
         {
             card.DofFixIsInstalling = true;
-            card.DofFixActionMessage = "Updating...";
+            card.DofFixActionMessage = "更新中...";
             try
             {
                 var progress = new Progress<(string msg, double pct)>(p =>

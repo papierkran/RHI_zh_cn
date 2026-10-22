@@ -138,7 +138,7 @@ public partial class DetailPanelBuilder
             _window.DetailEngineText.TextDecorations = isClickable ? Windows.UI.Text.TextDecorations.Underline : Windows.UI.Text.TextDecorations.None;
             _window.DetailEngineBadge.Tag = isClickable ? card : null;
             if (isClickable)
-                ToolTipService.SetToolTip(_window.DetailEngineBadge, "Click to cycle engine version (affects DOF Fix eligibility)");
+                ToolTipService.SetToolTip(_window.DetailEngineBadge, "点击切换引擎版本（影响 DOF Fix 资格）");
             else
                 ToolTipService.SetToolTip(_window.DetailEngineBadge, null);
         }
@@ -265,32 +265,32 @@ public partial class DetailPanelBuilder
                 if (dbMod != null)
                 {
                     // MapStatus converts "Done"→"✅" and "WIP"→"🚧", so normalise back to text
-                    modStatusText = dbMod.Status == "🚧" ? "WIP" : dbMod.Status == "✅" ? "Done" : null;
+                    modStatusText = dbMod.Status == "🚧" ? "制作中" : dbMod.Status == "✅" ? "完成" : null;
                 }
                 else if (!card.IsGenericMod)
                 {
                     // Fallback: WikiStatus is already correctly resolved for this card (handles
                     // games detected by folder name like "AFOP" whose DB entry uses the full title)
-                    modStatusText = card.WikiStatus == "🚧" ? "WIP"
-                                  : card.WikiStatus == "✅" ? "Done"
+                    modStatusText = card.WikiStatus == "🚧" ? "制作中"
+                                  : card.WikiStatus == "✅" ? "完成"
                                   : null;
                 }
             }
         }
 
-        if (string.Equals(modStatusText, "Done", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(modStatusText, "完成", StringComparison.OrdinalIgnoreCase))
         {
             _window.DetailModStatusIcon.Text = "✓";
             _window.DetailModStatusIcon.Foreground = UIFactory.Brush(ResourceKeys.AccentGreenBrush);
             _window.DetailModStatusIcon.Visibility = Visibility.Visible;
-            ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR mod complete");
+            ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR 模组已完成");
         }
-        else if (string.Equals(modStatusText, "WIP", StringComparison.OrdinalIgnoreCase))
+        else if (string.Equals(modStatusText, "制作中", StringComparison.OrdinalIgnoreCase))
         {
             _window.DetailModStatusIcon.Text = "🔨";
             _window.DetailModStatusIcon.Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush);
             _window.DetailModStatusIcon.Visibility = Visibility.Visible;
-            ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR mod in progress");
+            ToolTipService.SetToolTip(_window.DetailModStatusIcon, "HDR 模组制作中");
         }
         else
         {

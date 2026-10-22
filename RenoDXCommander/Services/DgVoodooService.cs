@@ -97,7 +97,7 @@ public class DgVoodooService
         catch (Exception ex)
         {
             if (File.Exists(tempPath)) try { File.Delete(tempPath); } catch { }
-            CrashReporter.Log($"[DgVoodooService.EnsureStagedAsync] Download failed — {ex.Message}");
+            CrashReporter.Log($"[DgVoodooService.EnsureStagedAsync] 下载失败 — {ex.Message}");
             throw;
         }
     }

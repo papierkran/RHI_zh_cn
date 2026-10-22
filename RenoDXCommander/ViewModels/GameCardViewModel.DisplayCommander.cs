@@ -12,7 +12,7 @@ public partial class GameCardViewModel
     public string DcStatusDot => DcStatus == GameStatus.UpdateAvailable ? "🟢"
         : DcStatus == GameStatus.Installed ? "🟢" : "⚪";
 
-    public string DcActionLabel => DcIsInstalling ? "Installing..."
+    public string DcActionLabel => DcIsInstalling ? "安装中..."
         : (!IsRsInstalled && !ExcludeFromUpdateAllReShade) ? "⚠  ReShade required"
         : DcStatus == GameStatus.UpdateAvailable ? "⬆  Update DC"
         : DcStatus == GameStatus.Installed ? "↺  Reinstall DC"
@@ -30,7 +30,7 @@ public partial class GameCardViewModel
     public string DcStatusText => DcIsInstalling ? "Installing…"
         : DcStatus == GameStatus.UpdateAvailable ? "Update"
         : DcStatus == GameStatus.Installed ? (DcInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string DcStatusColor => DcIsInstalling ? "#D4A856"
         : DcStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : DcStatus == GameStatus.Installed ? "#5ECB7D"

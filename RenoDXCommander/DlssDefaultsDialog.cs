@@ -37,7 +37,7 @@ public static class DlssDefaultsDialog
         var srPresetCombo = BuildPresetComboBox(DlssPresetService.SrPresets, settings.DefaultSrPreset);
         srCol.Children.Add(srPresetCombo);
 
-        srCol.Children.Add(new TextBlock { Text = "Render Scale", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Microsoft.UI.Xaml.Thickness(0, 2, 0, 0) });
+        srCol.Children.Add(new TextBlock { Text = "渲染比例", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Microsoft.UI.Xaml.Thickness(0, 2, 0, 0) });
         var srScaleCombo = BuildRenderScaleComboBox(settings.DefaultSrRenderScale);
         srCol.Children.Add(srScaleCombo);
 
@@ -59,7 +59,7 @@ public static class DlssDefaultsDialog
         var rrPresetCombo = BuildPresetComboBox(DlssPresetService.RrPresets, settings.DefaultRrPreset);
         rrCol.Children.Add(rrPresetCombo);
 
-        rrCol.Children.Add(new TextBlock { Text = "Render Scale", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Microsoft.UI.Xaml.Thickness(0, 2, 0, 0) });
+        rrCol.Children.Add(new TextBlock { Text = "渲染比例", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Microsoft.UI.Xaml.Thickness(0, 2, 0, 0) });
         var rrScaleCombo = BuildRenderScaleComboBox(settings.DefaultRrRenderScale);
         rrCol.Children.Add(rrScaleCombo);
 
@@ -97,7 +97,7 @@ public static class DlssDefaultsDialog
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
             var nrCol = new StackPanel { Spacing = 4 };
-            nrCol.Children.Add(new TextBlock { Text = "Neural Rendering", FontSize = 11, FontWeight = Microsoft.UI.Text.FontWeights.SemiBold, Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush) });
+            nrCol.Children.Add(new TextBlock { Text = "Neural Rendering（神经渲染）", FontSize = 11, FontWeight = Microsoft.UI.Text.FontWeights.SemiBold, Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush) });
 
             nrCol.Children.Add(new TextBlock { Text = "Version", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Microsoft.UI.Xaml.Thickness(0, 2, 0, 0) });
             nrVersionCombo = BuildCombo(dlssService.DlssnrVersions, settings.DefaultDlssnrVersion);
@@ -143,15 +143,15 @@ public static class DlssDefaultsDialog
 
         // Save selections — "NVIDIA Override" stores the bool, not the version string
         var srVersionSelected = GetSelectedVersion(srVersionCombo);
-        settings.DefaultSrDriverOverride = srVersionSelected == "NVIDIA Override";
+        settings.DefaultSrDriverOverride = srVersionSelected == "NVIDIA 覆盖";
         settings.DefaultDlssVersion = settings.DefaultSrDriverOverride ? "" : srVersionSelected;
 
         var rrVersionSelected = GetSelectedVersion(rrVersionCombo);
-        settings.DefaultRrDriverOverride = rrVersionSelected == "NVIDIA Override";
+        settings.DefaultRrDriverOverride = rrVersionSelected == "NVIDIA 覆盖";
         settings.DefaultDlssdVersion = settings.DefaultRrDriverOverride ? "" : rrVersionSelected;
 
         var fgVersionSelected = GetSelectedVersion(fgVersionCombo);
-        settings.DefaultFgDriverOverride = fgVersionSelected == "NVIDIA Override";
+        settings.DefaultFgDriverOverride = fgVersionSelected == "NVIDIA 覆盖";
         settings.DefaultDlssgVersion = settings.DefaultFgDriverOverride ? "" : fgVersionSelected;
 
         settings.DefaultStreamlineVersion = GetSelectedVersion(slVersionCombo);
@@ -188,7 +188,7 @@ public static class DlssDefaultsDialog
         items.AddRange(versions);
         items.Add("Custom");
         if (includeDriverOverride)
-            items.Add("NVIDIA Override");
+            items.Add("NVIDIA 覆盖");
 
         int selectedIdx = 0;
         if (includeDriverOverride && currentDriverOverride)

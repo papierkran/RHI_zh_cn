@@ -25,7 +25,7 @@ public sealed class UpdateLogWindow : Window
     {
         _updateLogService = updateLogService;
 
-        Title = "Component Updates";
+        Title = "组件更新";
 
         // Size — 720 × 500 logical px, DPI-scaled
         var hwnd = WindowNative.GetWindowHandle(this);

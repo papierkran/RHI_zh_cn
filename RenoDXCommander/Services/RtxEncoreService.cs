@@ -251,7 +251,7 @@ public class RtxEncoreService
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[RtxEncoreService.EnsureStaging] Download failed — {ex.Message}");
+            _crashReporter.Log($"[RtxEncoreService.EnsureStaging] 下载失败 — {ex.Message}");
         }
 
         progress?.Report(("RTX Encore ready", 100));

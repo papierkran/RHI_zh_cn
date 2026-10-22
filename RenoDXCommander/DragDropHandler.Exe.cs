@@ -73,7 +73,7 @@ public partial class DragDropHandler
             EngineType.Unreal       => "Unreal Engine",
             EngineType.UnrealLegacy => "Unreal Engine (Legacy)",
             EngineType.Unity        => "Unity",
-            _                       => "Unknown"
+            _                       => "未知"
         };
 
         var confirmPanel = new StackPanel { Spacing = 8 };

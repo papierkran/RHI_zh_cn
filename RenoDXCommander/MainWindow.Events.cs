@@ -24,20 +24,20 @@ public sealed partial class MainWindow
 
     private async void FullRefreshButton_Click(object sender, RoutedEventArgs e)
     {
-        _crashReporter.Log("[MainWindow.FullRefreshButton_Click] User clicked Full Refresh");
+        _crashReporter.Log("[MainWindow.FullRefreshButton_Click] User clicked 完全刷新");
 
         var dialog = new ContentDialog
         {
-            Title = "Full Refresh",
+            Title = "完全刷新",
             Content = "This will clear all caches and re-scan everything from scratch:\n\n" +
                       "• Re-detects all games from every storefront\n" +
                       "• Re-scans DLSS/Streamline DLL paths\n" +
                       "• Re-detects graphics APIs and engine types\n" +
                       "• Rebuilds shader and addon deployment state\n\n" +
                       "Try a normal Refresh first — it handles most issues without the full rescan. " +
-                      "Use Full Refresh as a last resort if games are missing, paths have changed, DLSS has been added to a game, or the DLSS section is missing from a game card.\n\n" +
-                      "The next couple of restarts may take a few seconds longer while caches are rebuilt.\n\n" +
-                      "Do not close RHI while the refresh is in progress — closing early will result in a missing library and the scan will need to be repeated.",
+                      "完全刷新作为最后手段 if games are missing, paths have changed, DLSS has been added to a game, or the DLSS section is missing from a game card.\n\n" +
+                      "重建缓存时，接下来的几次重启可能需要稍长一些时间。\n\n" +
+                      "刷新期间请勿关闭 RHI — 提前关闭会导致库文件缺失，需要重新扫描。",
             PrimaryButtonText = "Continue",
             CloseButtonText = "Cancel",
             DefaultButton = ContentDialogButton.Primary,
@@ -53,20 +53,20 @@ public sealed partial class MainWindow
 
     private async void CheckForUpdatesButton_Click(object sender, RoutedEventArgs e)
     {
-        _crashReporter.Log("[MainWindow.CheckForUpdatesButton_Click] User clicked Check For Updates");
+        _crashReporter.Log("[MainWindow.CheckForUpdatesButton_Click] User clicked 检查更新");
 
         // Show progress dialog
         var progressPanel = new StackPanel { Spacing = 8 };
         var progressRow = new StackPanel { Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal, Spacing = 12 };
         var progressRing = new ProgressRing { IsActive = true, Width = 20, Height = 20 };
-        var progressText = new TextBlock { Text = "Fetching manifest...", FontSize = 13, Foreground = UIFactory.Brush(ResourceKeys.TextSecondaryBrush) };
+        var progressText = new TextBlock { Text = "获取清单...", FontSize = 13, Foreground = UIFactory.Brush(ResourceKeys.TextSecondaryBrush) };
         progressRow.Children.Add(progressRing);
         progressRow.Children.Add(progressText);
         progressPanel.Children.Add(progressRow);
 
         var progressDialog = new ContentDialog
         {
-            Title = "Checking for updates...",
+            Title = "正在检查更新...",
             Content = progressPanel,
             XamlRoot = Content.XamlRoot,
             RequestedTheme = ElementTheme.Dark,
@@ -81,14 +81,14 @@ public sealed partial class MainWindow
             ViewModel.ForceNextUpdateCheck();
 
             // Trigger a Refresh (which fetches manifests + wiki + runs update checks)
-            DispatcherQueue?.TryEnqueue(() => progressText.Text = "Checking components...");
+            DispatcherQueue?.TryEnqueue(() => progressText.Text = "检查组件...");
             await ViewModel.RefreshAsync();
 
             // Trigger silent auto-install of any updates found
             ViewModel.TriggerAutoUpdate();
 
             // Check app update
-            DispatcherQueue?.TryEnqueue(() => progressText.Text = "Checking app version...");
+            DispatcherQueue?.TryEnqueue(() => progressText.Text = "检查应用版本...");
             // The update prompt needs the same modal slot; close progress first.
             await progressSession.DisposeAsync();
             await _dialogService.CheckForAppUpdateAsync();
@@ -189,7 +189,7 @@ public sealed partial class MainWindow
         {
             content.Children.Add(new TextBlock
             {
-                Text = "Engine.ini Settings",
+                Text = "Engine.ini 设置",
                 FontSize = 13,
                 Foreground = UIFactory.Brush(ResourceKeys.TextPrimaryBrush),
                 Margin = new Thickness(0, 0, 0, 4),
@@ -204,7 +204,7 @@ public sealed partial class MainWindow
             // ── HDR on First Boot ──────────────────────────────────────────────
             var hdrLabel = new TextBlock
             {
-                Text = "HDR on First Boot",
+                Text = "首次启动时 HDR",
                 FontSize = 11,
                 Foreground = UIFactory.Brush(ResourceKeys.TextSecondaryBrush),
                 VerticalAlignment = VerticalAlignment.Center,
@@ -251,7 +251,7 @@ public sealed partial class MainWindow
             // ── TAA Settings ───────────────────────────────────────────────────
             var taaLabel = new TextBlock
             {
-                Text = "TAA Settings",
+                Text = "TAA 设置",
                 FontSize = 11,
                 Foreground = UIFactory.Brush(ResourceKeys.TextSecondaryBrush),
                 VerticalAlignment = VerticalAlignment.Center,
@@ -305,7 +305,7 @@ public sealed partial class MainWindow
 
         var dialog = new ContentDialog
         {
-            Title = "Luma Settings",
+            Title = "Luma 设置",
             Content = content,
             CloseButtonText = "Close",
             DefaultButton = ContentDialogButton.Close,
@@ -740,7 +740,7 @@ public sealed partial class MainWindow
         // ── Open Folder ──
         var openFolderItem = new MenuFlyoutItem
         {
-            Text = "Open Folder",
+            Text = "打开文件夹",
             Tag = card,
         };
         openFolderItem.Click += CardOpenFolder_Click;
@@ -1008,7 +1008,7 @@ public sealed partial class MainWindow
         var currentQuery = SearchBox.Text?.Trim() ?? "";
         if (string.IsNullOrEmpty(currentQuery)) return;
 
-        var nameBox = new TextBox { PlaceholderText = "Filter name", Text = currentQuery, Width = 350 };
+        var nameBox = new TextBox { PlaceholderText = "筛选器名称", Text = currentQuery, Width = 350 };
         var errorText = new TextBlock
         {
             Text = "",
@@ -1281,7 +1281,7 @@ public sealed partial class MainWindow
             {
                 var warningDialog = new ContentDialog
                 {
-                    Title = "⚠ ReShade Addons",
+                    Title = "⚠ ReShade 附加组件",
                     Content = new TextBlock
                     {
                         Text = "ReShade addons are advanced features intended for experienced users who understand what they are.\n\n" +

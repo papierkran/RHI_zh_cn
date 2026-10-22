@@ -388,7 +388,7 @@ public static class ShaderPopupHelper
             var headerText = group.Key switch
             {
                 ShaderPackService.PackCategory.Essential   => "Essential",
-                ShaderPackService.PackCategory.Recommended => "Recommended",
+                ShaderPackService.PackCategory.Recommended => "推荐",
                 _                                          => "Extra",
             };
 
@@ -1135,7 +1135,7 @@ public static class ShaderPopupHelper
 
                     CrashReporter.Log($"[ShaderPopupHelper.ShowAsync] Exported shaders zip to clipboard: {zipPath}");
 
-                    exportStatusLabel.Text       = "Copied to clipboard";
+                    exportStatusLabel.Text       = "已复制到剪贴板";
                     exportStatusLabel.Visibility = Visibility.Visible;
 
                     // Clear after 3 seconds
@@ -1203,7 +1203,7 @@ public static class ShaderPopupHelper
                     if (string.IsNullOrEmpty(zipPath)) return;
 
                     importBtn.IsEnabled = false;
-                    importStatusLabel.Text       = "Importing...";
+                    importStatusLabel.Text       = "导入中...";
                     importStatusLabel.Foreground = Brush(ResourceKeys.AccentGreenBrush);
                     importStatusLabel.Visibility = Visibility.Visible;
 
@@ -1265,7 +1265,7 @@ public static class ShaderPopupHelper
             profilePanel.Children.Add(new Border { Height = 1, Background = Brush(ResourceKeys.BorderDefaultBrush), Margin = new Thickness(0, 10, 0, 10) });
             var openCustomBtn = new Button
             {
-                Content             = "Open Custom Folder",
+                Content             = "Open 自定义文件夹",
                 FontSize            = 12,
                 Padding             = new Thickness(8, 4, 8, 4),
                 HorizontalAlignment = HorizontalAlignment.Stretch,

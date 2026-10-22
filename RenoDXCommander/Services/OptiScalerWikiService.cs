@@ -176,7 +176,7 @@ public class OptiScalerWikiService : IOptiScalerWikiService
                 }
 
                 // Column 1: Working status (✔️ = Working, ❌ = Not Working)
-                string status = "Unknown";
+                string status = "未知";
                 if (cells.Count > 1)
                 {
                     var statusText = cells[1].InnerText;

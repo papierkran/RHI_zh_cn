@@ -411,7 +411,7 @@ public partial class MainViewModel
         {
             DispatcherQueue?.TryEnqueue(() =>
             {
-                card.UlActionMessage = $"❌ Install failed: {ex.Message}";
+                card.UlActionMessage = $"❌ 安装失败: {ex.Message}";
                 card.UlIsInstalling = false;
                 card.NotifyAll();
             });
@@ -448,7 +448,7 @@ public partial class MainViewModel
         Directory.CreateDirectory(DownloadPaths.FrameLimiter);
         var tempPath = GetUlCachePath(is32Bit) + ".tmp";
 
-        progress?.Report(("Downloading...", 0));
+        progress?.Report(("下载中...", 0));
         using var resp = await _http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
         resp.EnsureSuccessStatusCode();
 
@@ -662,7 +662,7 @@ public partial class MainViewModel
         Directory.CreateDirectory(DownloadPaths.FrameLimiter);
         var tempPath = GetDcCachePath(is32Bit) + ".tmp";
 
-        progress?.Report(("Downloading...", 0));
+        progress?.Report(("下载中...", 0));
         using var resp = await _http.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
         resp.EnsureSuccessStatusCode();
 
@@ -857,7 +857,7 @@ public partial class MainViewModel
         {
             DispatcherQueue?.TryEnqueue(() =>
             {
-                card.DcActionMessage = $"❌ Install failed: {ex.Message}";
+                card.DcActionMessage = $"❌ 安装失败: {ex.Message}";
                 card.DcIsInstalling = false;
                 card.NotifyAll();
             });

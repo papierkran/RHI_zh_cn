@@ -106,7 +106,7 @@ public partial class DetailPanelBuilder
                 {
                     var infoDlg = new ContentDialog
                     {
-                        Title = "Select Addons",
+                        Title = "选择附加组件",
                         Content = new TextBlock
                         {
                             Text = "Addon service is not yet wired. Complete Task 9.1 to enable addon selection.",
@@ -378,7 +378,7 @@ public partial class DetailPanelBuilder
         launchBtnRow.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
         var browseLaunchBtn = new Button
         {
-            Content = "Browse",
+            Content = "浏览",
             FontSize = 12,
             Height = 32,
             HorizontalAlignment = HorizontalAlignment.Stretch,

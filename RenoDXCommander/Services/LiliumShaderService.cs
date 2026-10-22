@@ -134,7 +134,7 @@ public class LiliumShaderService : ILiliumShaderService
                 var dlResp = await _http.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead);
                 if (!dlResp.IsSuccessStatusCode)
                 {
-                    CrashReporter.Log($"[LiliumShaderService.EnsureLatestAsync] Download failed ({dlResp.StatusCode})");
+                    CrashReporter.Log($"[LiliumShaderService.EnsureLatestAsync] 下载失败 ({dlResp.StatusCode})");
                     return;
                 }
 

@@ -107,7 +107,7 @@ public partial class DetailPanelBuilder
             {
                 Text = elevated
                     ? "✓ Running as admin — all driver profile settings are writable."
-                    : "⚠ Admin rights required to write driver profile settings. Enable Admin Mode in Settings or restart as admin.",
+                    : "⚠ Admin rights required to write driver profile settings. Enable 管理员模式 in Settings or restart as admin.",
                 FontSize     = 10,
                 Foreground   = UIFactory.Brush(elevated ? ResourceKeys.TextTertiaryBrush : ResourceKeys.AccentAmberDimBrush),
                 TextWrapping = TextWrapping.Wrap,
@@ -576,7 +576,7 @@ public partial class DetailPanelBuilder
 
             // Power Management Mode
             {
-                powerCol.Children.Add(new TextBlock { Text = "Power Mode", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Thickness(0, 2, 0, 0) });
+                powerCol.Children.Add(new TextBlock { Text = "电源模式", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Thickness(0, 2, 0, 0) });
                 var options = DlssPresetService.PowerManagementOptions;
                 uint current = d.PowerManagementMode;
                 var items = options.Select(o => o.Name).ToArray();
@@ -611,7 +611,7 @@ public partial class DetailPanelBuilder
                 bool gsyncEnabled = d.PerGameGSyncEnabled;
                 var gsyncCombo = new ComboBox
                 {
-                    ItemsSource = new[] { "Enabled", "Disabled" },
+                    ItemsSource = new[] { "已启用", "已禁用" },
                     SelectedIndex = gsyncEnabled ? 0 : 1,
                     FontSize = 11,
                     HorizontalAlignment = HorizontalAlignment.Stretch,
@@ -843,7 +843,7 @@ public partial class DetailPanelBuilder
                     {
                         Text = isElevatedCapture
                             ? "✓ Running as admin — all driver profile settings are writable."
-                            : "⚠ Admin rights required to write driver profile settings. Enable Admin Mode in Settings or restart as admin.",
+                            : "⚠ Admin rights required to write driver profile settings. Enable 管理员模式 in Settings or restart as admin.",
                         FontSize = 10,
                         Foreground = UIFactory.Brush(isElevatedCapture ? ResourceKeys.TextTertiaryBrush : ResourceKeys.AccentAmberDimBrush),
                         TextWrapping = TextWrapping.Wrap,
@@ -862,7 +862,7 @@ public partial class DetailPanelBuilder
             {
                 Text = isElevated
                     ? "✓ Running as admin — all driver profile settings are writable."
-                    : "⚠ Admin rights required to write driver profile settings. Enable Admin Mode in Settings or restart as admin.",
+                    : "⚠ Admin rights required to write driver profile settings. Enable 管理员模式 in Settings or restart as admin.",
                 FontSize = 10,
                 Foreground = UIFactory.Brush(isElevated ? ResourceKeys.TextTertiaryBrush : ResourceKeys.AccentAmberDimBrush),
                 TextWrapping = TextWrapping.Wrap,

@@ -203,7 +203,7 @@ public class RenoDXDbService : IRenoDXDbService
     // ── Helpers ───────────────────────────────────────────────────────────────
 
     private static string MapStatus(string? status) =>
-        string.Equals(status, "WIP", StringComparison.OrdinalIgnoreCase) ? "🚧" : "✅";
+        string.Equals(status, "制作中", StringComparison.OrdinalIgnoreCase) ? "🚧" : "✅";
 
     // ── Private deserialization model for RenoDXdb.json ──────────────────────
     // Uses lowercase field names as stored in the hosted file.

@@ -643,7 +643,7 @@ public partial class ShaderPackService : IShaderPackService
         value switch
         {
             "Essential"   => PackCategory.Essential,
-            "Recommended" => PackCategory.Recommended,
+            "推荐" => PackCategory.Recommended,
             "Extra"       => PackCategory.Extra,
             _ => null
         };

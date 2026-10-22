@@ -21,7 +21,7 @@ public sealed partial class MainWindow
         // Build the progress dialog
         var statusText = new TextBlock
         {
-            Text = "Preparing...",
+            Text = "准备中...",
             FontSize = 12,
             Foreground = UIFactory.Brush(ResourceKeys.TextSecondaryBrush),
             TextWrapping = Microsoft.UI.Xaml.TextWrapping.Wrap,
@@ -89,7 +89,7 @@ public sealed partial class MainWindow
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[MainWindow.UpdateAllButton_Click] Error during Update All — {ex.Message}");
+            _crashReporter.Log($"[MainWindow.UpdateAllButton_Click] Error during 全部更新 — {ex.Message}");
         }
 
         // Close the dialog
@@ -330,7 +330,7 @@ public sealed partial class MainWindow
             }
             else
             {
-                card.DofFixActionMessage = "❌ Install failed";
+                card.DofFixActionMessage = "❌ 安装失败";
             }
         }
         catch (Exception ex)
@@ -1193,7 +1193,7 @@ public sealed partial class MainWindow
 
         var progressDialog = new ContentDialog
         {
-            Title = "Full Refresh",
+            Title = "完全刷新",
             Content = progressPanel,
             XamlRoot = Content.XamlRoot,
             RequestedTheme = ElementTheme.Dark,

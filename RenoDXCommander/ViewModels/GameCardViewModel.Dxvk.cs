@@ -84,10 +84,10 @@ public partial class GameCardViewModel
     public string DxvkStatusDot => DxvkStatus == GameStatus.UpdateAvailable ? "🟢"
         : DxvkStatus == GameStatus.Installed ? "🟢" : "⚪";
 
-    public string DxvkActionLabel => DxvkIsInstalling ? "Installing..."
+    public string DxvkActionLabel => DxvkIsInstalling ? "安装中..."
         : DxvkStatus == GameStatus.UpdateAvailable ? "⬆  Update DXVK"
-        : DxvkStatus == GameStatus.Installed ? "↺  Reinstall DXVK"
-        : "⬇  Install DXVK";
+        : DxvkStatus == GameStatus.Installed ? "↺  重新安装 DXVK"
+        : "⬇  安装 DXVK";
 
     public string DxvkBtnBackground  => DxvkStatus == GameStatus.UpdateAvailable ? "#201838" : "#182840";
     public string DxvkBtnForeground  => DxvkStatus == GameStatus.UpdateAvailable ? "#B898E8" : "#7AACDD";
@@ -100,7 +100,7 @@ public partial class GameCardViewModel
     public string DxvkStatusText => DxvkIsInstalling ? "Installing…"
         : DxvkStatus == GameStatus.UpdateAvailable ? "Update"
         : DxvkStatus == GameStatus.Installed ? (DxvkInstalledVersion ?? "Installed")
-        : "Ready";
+        : "就绪";
     public string DxvkStatusColor => DxvkIsInstalling ? "#D4A856"
         : DxvkStatus == GameStatus.UpdateAvailable ? "#B898E8"
         : DxvkStatus == GameStatus.Installed ? "#5ECB7D"

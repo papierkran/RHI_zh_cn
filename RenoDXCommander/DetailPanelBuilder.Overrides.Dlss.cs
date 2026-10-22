@@ -66,7 +66,7 @@ public partial class DetailPanelBuilder
 
             // "NVIDIA Override" as a selectable option when the caller supports it
             if (onDriverOverrideToggled != null)
-                items.Add("NVIDIA Override");
+                items.Add("NVIDIA 覆盖");
         }
 
         // Find selected index based on installed version (or NVIDIA Override if active)
@@ -122,9 +122,9 @@ public partial class DetailPanelBuilder
         };
 
         if (driverOverrideActive)
-            ToolTipService.SetToolTip(versionCombo, "NVIDIA Override is active — the driver is injecting its own latest DLL for this game. Select any other version to disable the override and deploy that version instead.");
+            ToolTipService.SetToolTip(versionCombo, "NVIDIA 覆盖 is active — the driver is injecting its own latest DLL for this game. Select any other version to disable the override and deploy that version instead.");
         else if (onDriverOverrideToggled != null)
-            ToolTipService.SetToolTip(versionCombo, "Selects which DLL version is copied into the game folder. Default restores the original game DLL. Custom uses your own file from %LocalAppData%\\RHI\\Custom\\DLSS\\. NVIDIA Override lets the driver inject its own latest version instead of a file on disk — equivalent to enabling DLSS Override in NVIDIA App or Profile Inspector.");
+            ToolTipService.SetToolTip(versionCombo, "Selects which DLL version is copied into the game folder. Default restores the original game DLL. Custom uses your own file from %LocalAppData%\\RHI\\Custom\\DLSS\\. NVIDIA 覆盖 lets the driver inject its own latest version instead of a file on disk — equivalent to enabling DLSS Override in NVIDIA App or Profile Inspector.");
         else
             ToolTipService.SetToolTip(versionCombo, "Selects which DLL version is copied into the game folder. Default restores the original game DLL. Custom uses your own file from %LocalAppData%\\RHI\\Custom\\DLSS\\.");
 
@@ -137,7 +137,7 @@ public partial class DetailPanelBuilder
             var selected = versionCombo.SelectedItem as string;
             if (string.IsNullOrEmpty(selected)) return;
 
-            if (selected == "NVIDIA Override")
+            if (selected == "NVIDIA 覆盖")
             {
                 // Enable driver DLL override — no DLL swap needed
                 onDriverOverrideToggled?.Invoke(true);
@@ -145,7 +145,7 @@ public partial class DetailPanelBuilder
             }
 
             // If we were on NVIDIA Override and switched away, disable it first
-            if (driverOverrideActive || (ev.RemovedItems.Count > 0 && ev.RemovedItems[0] as string == "NVIDIA Override"))
+            if (driverOverrideActive || (ev.RemovedItems.Count > 0 && ev.RemovedItems[0] as string == "NVIDIA 覆盖"))
                 onDriverOverrideToggled?.Invoke(false);
 
             versionCombo.IsEnabled = false;
@@ -212,7 +212,7 @@ public partial class DetailPanelBuilder
         // Render Scale ComboBox (only for SR and RR)
         if (onRenderScaleSelected != null && isPresent)
         {
-            col.Children.Add(new TextBlock { Text = "Render Scale", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Thickness(0, 2, 0, 0) });
+            col.Children.Add(new TextBlock { Text = "渲染比例", FontSize = 10, Foreground = UIFactory.Brush(ResourceKeys.TextTertiaryBrush), Margin = new Thickness(0, 2, 0, 0) });
             var rsOptions = DlssPresetService.RenderScaleOptions;
             var rsItems = rsOptions.Select(o => o.Name).ToList();
 

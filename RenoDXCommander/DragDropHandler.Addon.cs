@@ -184,7 +184,7 @@ public partial class DragDropHandler
                     };
                     var lumaPickDialog = new ContentDialog
                     {
-                        Title = "🌙 Install Luma Addon",
+                        Title = "🌙 安装 Luma Addon",
                         Content = new StackPanel
                         {
                             Spacing = 8,
@@ -241,7 +241,7 @@ public partial class DragDropHandler
         {
             var noGamesDialog = new ContentDialog
             {
-                Title = "No Games Available",
+                Title = "没有可用游戏",
                 Content = "No games are currently detected. Add a game first.",
                 CloseButtonText = "OK",
                 XamlRoot = _window.Content.XamlRoot,
@@ -318,7 +318,7 @@ public partial class DragDropHandler
 
         var pickDialog = new ContentDialog
         {
-            Title = isLumaAddon ? "🌙 Install Luma Addon" : "📦 Install RenoDX Addon",
+            Title = isLumaAddon ? "🌙 安装 Luma Addon" : "📦 Install RenoDX Addon",
             Content = panel,
             PrimaryButtonText = "Next",
             CloseButtonText = "Cancel",
@@ -634,7 +634,7 @@ public partial class DragDropHandler
         }
         catch (Exception ex)
         {
-            _crashReporter.Log($"[DragDropHandler.ProcessDroppedAddon] Install failed — {ex.Message}");
+            _crashReporter.Log($"[DragDropHandler.ProcessDroppedAddon] 安装失败 — {ex.Message}");
             var errDialog = new ContentDialog
             {
                 Title = "❌ Install Failed",
@@ -722,7 +722,7 @@ public partial class DragDropHandler
                         };
                         var pickerDialog = new ContentDialog
                         {
-                            Title = "Install Luma Mod",
+                            Title = "安装 Luma Mod",
                             Content = new StackPanel
                             {
                                 Spacing = 8,

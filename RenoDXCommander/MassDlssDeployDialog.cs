@@ -44,7 +44,7 @@ public class MassDlssDeployDialog
             var emptyDialog = new ContentDialog
             {
                 Title = "No DLSS/Streamline Games",
-                Content = "No games with DLSS or Streamline DLLs were detected.\nRun a Full Refresh to scan for them.",
+                Content = "No games with DLSS or Streamline DLLs were detected.\nRun a 完全刷新 to scan for them.",
                 CloseButtonText = "OK",
                 XamlRoot = _xamlRoot,
                 RequestedTheme = ElementTheme.Dark,
@@ -287,7 +287,7 @@ public class MassDlssDeployDialog
 
         var progressDialog = new ContentDialog
         {
-            Title = "Deploying...",
+            Title = "部署中...",
             Content = progressContainer,
             XamlRoot = _xamlRoot,
             RequestedTheme = ElementTheme.Dark,
@@ -473,9 +473,9 @@ public class MassDlssDeployDialog
         if (srPresetCount > 0) report.AppendLine($"SR Preset applied to {srPresetCount} game(s)");
         if (rrPresetCount > 0) report.AppendLine($"RR Preset applied to {rrPresetCount} game(s)");
         if (fgPresetCount > 0) report.AppendLine($"FG Preset applied to {fgPresetCount} game(s)");
-        if (srDriverCount > 0) report.AppendLine($"SR NVIDIA Override set on {srDriverCount} game(s)");
-        if (rrDriverCount > 0) report.AppendLine($"RR NVIDIA Override set on {rrDriverCount} game(s)");
-        if (fgDriverCount > 0) report.AppendLine($"FG NVIDIA Override set on {fgDriverCount} game(s)");
+        if (srDriverCount > 0) report.AppendLine($"SR NVIDIA 覆盖 set on {srDriverCount} game(s)");
+        if (rrDriverCount > 0) report.AppendLine($"RR NVIDIA 覆盖 set on {rrDriverCount} game(s)");
+        if (fgDriverCount > 0) report.AppendLine($"FG NVIDIA 覆盖 set on {fgDriverCount} game(s)");
         if (autoCreateProfiles && presetService.ProfilesCreatedCount > 0)
             report.AppendLine($"NVIDIA profiles created: {presetService.ProfilesCreatedCount}");
         if (skippedAlreadyAtVersion > 0) report.AppendLine($"\nSkipped: {skippedAlreadyAtVersion} (already at selected version)");
@@ -486,7 +486,7 @@ public class MassDlssDeployDialog
 
         var resultDialog = new ContentDialog
         {
-            Title = "Batch Deploy Complete",
+            Title = "批量部署 Complete",
             Content = new TextBlock { Text = report.ToString().TrimEnd(), TextWrapping = TextWrapping.Wrap, FontSize = 12 },
             CloseButtonText = "OK",
             XamlRoot = _xamlRoot,
@@ -599,7 +599,7 @@ public class MassDlssDeployDialog
         return false;
     }
 
-    private const string NvidiaOverrideOption = "NVIDIA Override";
+    private const string NvidiaOverrideOption = "NVIDIA 覆盖";
 
     private ComboBox BuildVersionCombo(IReadOnlyList<string> versions, string savedDefault = "", bool includeDriverOverride = false, bool currentDriverOverride = false)
     {

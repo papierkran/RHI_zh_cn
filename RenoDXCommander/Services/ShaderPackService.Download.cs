@@ -170,7 +170,7 @@ public partial class ShaderPackService
             var dlResp = await _http.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead);
             if (!dlResp.IsSuccessStatusCode)
             {
-                CrashReporter.Log($"[ShaderPackService.EnsurePackAsync] [{pack.Id}] Download failed ({dlResp.StatusCode})");
+                CrashReporter.Log($"[ShaderPackService.EnsurePackAsync] [{pack.Id}] 下载失败 ({dlResp.StatusCode})");
                 return;
             }
 

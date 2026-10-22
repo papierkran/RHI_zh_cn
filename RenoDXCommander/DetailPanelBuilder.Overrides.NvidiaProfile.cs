@@ -471,7 +471,7 @@ public partial class DetailPanelBuilder
                     if (tc == null || string.IsNullOrEmpty(tc.InstallPath)) return;
 
                     deployNrBtn.IsEnabled = false;
-                    deployNrBtn.Content = "Downloading...";
+                    deployNrBtn.Content = "下载中...";
 
                     try
                     {
@@ -641,7 +641,7 @@ public partial class DetailPanelBuilder
             // Only show "Custom" if we can't read a real version from the DLL
             var slVersionFromDll = card.StreamlineInstalledVersion;
             var slInstalledVersion = (hasStreamline && card.StreamlineIsCustom
-                && (string.IsNullOrEmpty(slVersionFromDll) || slVersionFromDll == "Unknown"))
+                && (string.IsNullOrEmpty(slVersionFromDll) || slVersionFromDll == "未知"))
                 ? "Custom"
                 : slVersionFromDll;
             var slCol = BuildDlssColumn("Streamline", slEnabled, dlssService.StreamlineVersions,
